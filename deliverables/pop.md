@@ -14,10 +14,10 @@ This project will allow staff and users to manage the tools and equipment of the
 
 ## Languages and Technology
 This project will be built on the MERN Stack/Framework.
-- Mongo Db
-- Express JS
-- React JS
-- Node JS
+- Mongo DB - Database
+- Express JS - Backend Framework
+- React JS - Front End Framework
+- Node JS - Runtime Environment
 
 ## Life Cycle and Methodology
 [insert life cycle and methodology]
