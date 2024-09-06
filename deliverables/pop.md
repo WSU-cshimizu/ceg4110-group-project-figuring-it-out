@@ -48,3 +48,4 @@ We will be having sprint planning at the start of the sprint and sprint reviews 
 ## Signatures
 Estuardo Marroquin
 Shishir Paudel 
+Skylar Shaffer
