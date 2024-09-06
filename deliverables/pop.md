@@ -46,6 +46,7 @@ Scrum : To stay organized and keep things running smothly , We will have team ch
 We will be having sprint planning at the start of the sprint and sprint reviews at the end of the sprint.
 
 ## Signatures
-Estuardo Marroquin
-Shishir Paudel 
-Skylar Shaffer
+Estuardo Marroquin, 
+Shishir Paudel, 
+Skylar Shaffer, 
+Adarsha Subedi
