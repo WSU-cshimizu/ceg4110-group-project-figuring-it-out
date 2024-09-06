@@ -14,20 +14,20 @@ Recreation Center Equipment Management System (RCEMS) will allow users to book a
 5. Breakage/Damage Reporting: Students can report damage or malfunction of equipment. Administrators can see the equipment status and update based on the report.
 
 ## Predicted Architecture
-1. FrontEnd
-Components: handles UI rendering, user interactions and state management.
+1. **FrontEnd**  
+    Components: handles UI rendering, user interactions and state management.
 
-State Management Tools: Context API would be used for managing application states.
+    State Management Tools: Context API would be used for managing application states.
 
-APIs: Using Frontend , components make requests to the backend through API to fetch and update datas from the database.
+    APIs: Using Frontend , components make requests to the backend through API to fetch and update datas from the database.
 
-2. Backend
-Node JS : Runtime environment for Javascript that is used to run server side code . 
+2. **Backend**  
+    Node JS : Runtime environment for Javascript that is used to run server side code.  
+  
+    Express: Framework that acts as a middleware framework used for handling HTTP requests and building API. 
 
-Express: Framework that acts as a middleware framework used for handling HTTP requests and building API. 
-
-3. Database
-Mongo DB: NoSQL database used to store the data for application.
+3. **Database**  
+    Mongo DB: NoSQL database used to store the data for application.
 
 ## Languages and Technology
 We chose this Tech stack because Using javascript , we can handle both front end and backend . It allows us to create a dynamic and interactive system . Also we can carry out complex actions. 
