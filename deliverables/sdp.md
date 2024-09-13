@@ -15,7 +15,7 @@ Two days per week
 We anticipate communicating via Discord outside of meetings. We have commited to responding within a 2 day timeframe.
 
 # Timeline
-![gantt](../assets/gantt-chart.jpg)
+![gantt](../assets/gantt-chart.png)
 
 ## Milestones (i.e., "Checkins")
 See below
