@@ -30,15 +30,15 @@ We anticipate communicating via Discord outside of meetings. We have commited to
 
 As also demonstrated on the Gantt Chart, we have anticipated the following milestones:
 
-**Milestone 1:** Project Setup and Initial Designs to be completed by Sept 23, 2024
+**Milestone 1:** Project Setup and Initial Designs to be completed by Sept 27, 2024
 
-**Milestone 2:** User Authentication & Equipment Management System to be ready by Oct 7, 2024
+**Milestone 2:** User Authentication & Equipment Management System to be ready by Oct 11, 2024
 
-**Milestone 3:** Booking System & Damage Reporting System to be completed by Oct 21, 2024
+**Milestone 3:** Booking System & Damage Reporting System to be completed by Oct 25, 2024
 
-**Milestone 4:** Admin Dashboard & Notification System to be completed by Nov 4, 2024
+**Milestone 4:** Admin Dashboard & Notification System to be completed by Nov 8, 2024
 
-**Milestone 5:** Final Testing and System Deployment to be completed by Nov 18, 2024
+**Milestone 5:** Final Testing and System Deployment to be completed by Nov 22, 2024
 
 ### MVSs Timeline
 
@@ -53,7 +53,7 @@ Following will be the features for the MVS of our System:
 -**Admin Dashboard:** Admins can manage equipment and view booking status.  
 
 
-We anticipate it to be completed by Oct 18, 2024.
+We anticipate it to be completed by Oct 21, 2024.
 
 ### Requirement Specification
 Ready on 09/24/2024
