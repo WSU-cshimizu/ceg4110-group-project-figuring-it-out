@@ -56,7 +56,7 @@ Following will be the features for the MVS of our System:
 We anticipate it to be completed by Oct 21, 2024.
 
 ### Requirement Specification
-Ready on 09/24/2024
+Ready on 10/04/2024
 
 ### Design Specification
-Ready on 10/01/2024
+Ready on 10/11/2024
