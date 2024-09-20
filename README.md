@@ -15,3 +15,4 @@ I'm a Junior at Wright State. I transferred over from Sinclair.
 ### Shishir
 
 ### Skylar
+I am a Senior at Wright State majoring in Comp Sci.
