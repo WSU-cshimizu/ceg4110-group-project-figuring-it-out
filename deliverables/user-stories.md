@@ -7,7 +7,7 @@
 
 - As a student user, I want to be able to report damages so I can ensure maintenance fixes equipment for the next student.
 
-- 
+- As a student user, I want to be able to check the availabiltiy of equipment online so that I book them remotely.
 
 - 
 
@@ -18,11 +18,11 @@
 
 - As a Frontend developer, I want to know what validation is needed on the booking forms so that the correct data is passed to the Backend without errors.
 
-- 
+- As a Backend developer, I want to the system to create, read, update and delete the equipment's availability data so that the equipment's availibility can be managed properly.
 
 - 
 
 ## Testing Stories
-- 
+- As a tester, I want to ensure that the login page works properly so that the user will be prompted to login before accessing any other functionality in the site.
 
 - 
