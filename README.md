@@ -14,6 +14,7 @@ I am a Junior at Wright State University, I recently transferred from Sinclair C
 I'm a Junior at Wright State. I transferred over from Sinclair.
 
 ### Shishir
+I'm an International graduate student at Wright State University. 
 
 ### Skylar
 I am a Senior at Wright State majoring in Comp Sci.
