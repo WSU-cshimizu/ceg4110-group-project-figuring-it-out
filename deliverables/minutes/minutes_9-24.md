@@ -11,7 +11,6 @@
   * In light of recent information, we will be amending our expected completion dates.
 * Determine data required in each Mongo document for our collection, to begin working on the MongoDB schema.
 
-<!-- To be completed after the meeting
 ## Notes
 * Person 1: _statement_
   * Person 3: _follow on statement_

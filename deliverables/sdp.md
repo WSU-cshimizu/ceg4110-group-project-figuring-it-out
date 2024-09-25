@@ -15,7 +15,8 @@ Thursday on Discord
 
 ### Meeting Time(s)
 FH 204 from 12:00 PM to 12:20 PM
-Discord from 8:15 PM to 9:00 PM
+Discord from 9:15 PM to 10:00 PM on Tuesday
+Discord from 8:15 PM to 9:00 PM on Thursday
 
 ### Meeting Cadence
 Two days per week
