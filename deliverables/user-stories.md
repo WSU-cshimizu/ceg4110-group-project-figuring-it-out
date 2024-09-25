@@ -7,7 +7,7 @@
 
 - As a student user, I want to be able to report damages so I can ensure maintenance fixes equipment for the next student.
 
-- As a student user, I want to be able to check the availabiltiy of equipment online so that I book them remotely.
+- As a student user, I want to be able to check the availability of equipment online so that I book them remotely.
 
 - As an admin, I want to be able to add new equipment, so I can keep the inventory up to date.
 
@@ -19,7 +19,7 @@
 
 - As a Frontend developer, I want to know what validation is needed on the booking forms so that the correct data is passed to the Backend without errors.
 
-- As a Backend developer, I want to the system to create, read, update and delete the equipment's availability data so that the equipment's availibility can be managed properly.
+- As a Backend developer, I want to the system to create, read, update and delete the equipment's availability data so that the equipment's availability can be managed properly.
 
 - As a backend developer, I want to implement a damage reporting system so the admin can access and manage reports from students.
 
