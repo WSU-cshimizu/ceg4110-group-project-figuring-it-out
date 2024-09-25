@@ -5,9 +5,9 @@ As a team we plan to meet from 8:15pm to 9:00pm on Tuesdays and Thursdays via di
 
 We will make use of the given time at the end of class from 12:00pm to 12:20pm on Tuesdays to meet as well. These meetings will take place in class.
 
-Each of these meetings are held weekly
+Each of these meetings are held weekly.
 
-Outside of the specific meeting times we anticipate commuicating via the text channels in our team discord.
+Outside of the specific meeting times we anticipate communicating via the text channels in our team discord.
 
 ### Meeting Location(s)
 Tuesdays in FH 204 and on Discord
@@ -21,7 +21,7 @@ Discord from 8:15 PM to 9:00 PM
 Two days per week
 
 ### Communication mechanism(s) for outside of meetings
-We anticipate communicating via Discord outside of meetings. We have commited to responding within a 2 day timeframe.
+We anticipate communicating via Discord outside of meetings. We have committed to responding within a 2 day timeframe.
 
 # Timeline
 ![gantt](../assets/gantt-chart.png)
@@ -30,7 +30,7 @@ We anticipate communicating via Discord outside of meetings. We have commited to
 
 As also demonstrated on the Gantt Chart, we have anticipated the following milestones:
 
-**Milestone 1:** Project Setup and Initial Designs to be completed by Sept 27, 2024
+**Milestone 1:** Project Setup and Initial Designs to be completed by October 4, 2024
 
 **Milestone 2:** User Authentication & Equipment Management System to be ready by Oct 11, 2024
 
@@ -53,10 +53,10 @@ Following will be the features for the MVS of our System:
 -**Admin Dashboard:** Admins can manage equipment and view booking status.  
 
 
-We anticipate it to be completed by Oct 21, 2024.
+We anticipate it to be completed by Oct 28, 2024.
 
 ### Requirement Specification
-Ready on 10/04/2024
+Ready on October 4, 2024.
 
 ### Design Specification
-Ready on 10/11/2024
+Ready on October 11, 2024.
