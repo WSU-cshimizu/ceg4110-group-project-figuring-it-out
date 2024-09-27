@@ -13,3 +13,6 @@ Text paragraph.
 Text paragraph.
 
 Text paragraph.
+
+## Differences in Teaching
+Scrum struggles with unexpected events occuring during a sprint thats already planned out.
