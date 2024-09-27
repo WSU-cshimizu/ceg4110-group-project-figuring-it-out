@@ -15,5 +15,7 @@ When assessing priority, it is possible to quantify things usually thought of as
 
 Often times, there is difference between what stakeholders think they know what they want in a software system and what really is needed in a software. To bridge this gap, the business analyst sits through multiple iterations of discussions with stakeholders and guide them towards what really is necessary for the project success.
 
+As a software engineer, prioritize the important tasks first. If there's a system failure or any other bugs, fix it before anything else. Focus on delivering key features and meeting client needs, leaving less urgent work for later.
+
 ## Differences in Teaching
 Scrum struggles with unexpected events occuring during a sprint that's already planned out.
