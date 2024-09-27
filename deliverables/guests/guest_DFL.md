@@ -13,7 +13,7 @@ Agile can be useful even for companies not typically associated with software en
 
 When assessing priority, it is possible to quantify things usually thought of as unquantifiable by thinking of the problem from a different perspective. Tim gave the example of comparing how much time a user is losing and how much time an engineer would need to fix the problem.
 
-Text paragraph.
+Often times, there is difference between what stakeholders think they know what they want in a software system and what really is needed in a software. To bridge this gap, the business analyst sits through multiple iterations of discussions with stakeholders and guide them towards what really is necessary for the project success.
 
 ## Differences in Teaching
 Scrum struggles with unexpected events occuring during a sprint that's already planned out.
