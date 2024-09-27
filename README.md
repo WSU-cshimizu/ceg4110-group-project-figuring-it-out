@@ -30,4 +30,6 @@ Project Overview Proposal is located at `deliverables/pop.md`.
 ### Software Development Plan
 Software Development Plan is located at `deliverables/sdp.md`.
 
+### Guest Lectures
+Reports about Guest Lecturers are located in `deliverables/guests/` in the format `guest_COMPANY.md`.
 <!-- Add more here, or something lol -->
