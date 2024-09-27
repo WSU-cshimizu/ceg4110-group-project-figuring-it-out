@@ -5,7 +5,8 @@
 
 ## Pertinent Questions
 How do you assess someone's skill set during an interview, especially when hiring based on skills rather than open positions?
-* Question 2
+
+Many people consider their problems to be the highest priority. How do you show them that there are more important issues?
 
 ## Lessons Learned
 Agile can be useful even for companies not typically associated with software engineering. We learned how useful Agile practices, especially with their switch from Scrum to Kanban, and how they have improved their work operationally.
