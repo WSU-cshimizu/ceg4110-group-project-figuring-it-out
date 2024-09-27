@@ -63,7 +63,7 @@ We anticipate it to be completed by Oct 28, 2024.
 
 ### Requirement Specification
 
-Ready on September 27, 2024.
+Ready on October 4, 2024
 
 ### Design Specification
 
