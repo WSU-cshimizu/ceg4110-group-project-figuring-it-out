@@ -37,7 +37,7 @@ We anticipate communicating via Discord outside of meetings. We have committed t
 
 As also demonstrated on the Gantt Chart, we have anticipated the following milestones:
 
-**Milestone 1:** Requirement Specifications to be completed by September 27, 2024
+**Milestone 1:** Requirement Specifications to be completed by October 4, 2024
 
 **Milestone 2:** Project Startup and Design Specifications to be ready by Oct 11, 2024
 
