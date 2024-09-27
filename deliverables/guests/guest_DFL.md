@@ -4,7 +4,7 @@
 * **Date:** `9/26/24`
 
 ## Pertinent Questions
-* Question 1
+How do you assess someone's skill set during an interview, especially when hiring based on skills rather than open positions?
 * Question 2
 
 ## Lessons Learned
