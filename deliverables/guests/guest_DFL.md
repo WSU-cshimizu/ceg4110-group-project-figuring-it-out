@@ -11,7 +11,7 @@ Many people consider their problems to be the highest priority. How do you show 
 ## Lessons Learned
 Agile can be useful even for companies not typically associated with software engineering. We learned how useful Agile practices, especially with their switch from Scrum to Kanban, and how they have improved their work operationally.
 
-Text paragraph.
+When assessing priority, it is possible to quantify things usually thought of as unquantifiable by thinking of the problem from a different perspective. Tim gave the example of comparing how much time a user is losing and how much time an engineer would need to fix the problem.
 
 Text paragraph.
 
