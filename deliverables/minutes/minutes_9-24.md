@@ -20,4 +20,5 @@ We discussed the wireframe to prepare front-end development and will work on a r
 - Rough sketch of wireframe
 
 ## Signatures
-Skylar Shaffer, Estuardo Marroquin, Rob Pierce, Adarsha Subedi
+<!-- Add signatures on 9/26/2024 -->
+Skylar Shaffer, Estuardo Marroquin, Rob Pierce, Adarsha Subedi, Shishir Paudel
