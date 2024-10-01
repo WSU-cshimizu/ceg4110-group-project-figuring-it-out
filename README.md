@@ -6,6 +6,7 @@ Hello, we are Figuring It Out. We are currently figuring it out.
 ## Members
 
 ### Adarsha
+I am an international graduate student from Nepal. I did my undergraduate degree in computer science at Tribhuvan University.
 
 ### Estuardo
 I am a Junior at Wright State University, I recently transferred from Sinclair Community College.
