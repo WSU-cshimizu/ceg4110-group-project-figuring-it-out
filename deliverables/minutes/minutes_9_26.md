@@ -35,4 +35,4 @@ By next meeting, we will have drafts of the wireframe created.
 
 ## Signatures
 <!-- Add signatures on 10/1 -->
-Adarsha Subedi, Shishir Paudel
+Adarsha Subedi, Shishir Paudel, Skylar Shaffer
