@@ -17,6 +17,10 @@
   * Login/Signup and Admin 
 
 ## Notes
+
+- In class Data Flow Diagram and Waterfall Diagram.
+![diagrams](../../assets/diagrams.png)
+
 - We discussed the System's flow using DFD and Swimlane Diagrams which we drew on the board during class and discussed how it might need some adjustment during build. 
 
 - We talked about user stories and break-down of different requirements of each user stories. We are assuming that we have to break down requirement of each user stories that we created before.
@@ -28,4 +32,4 @@
 
 ## Signatures
 <!-- Add signatures on 10/01/2024 -->
-Adarsha Subedi
+Adarsha Subedi, Skylar Shaffer
