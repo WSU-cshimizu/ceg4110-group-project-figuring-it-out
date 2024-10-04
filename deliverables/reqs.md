@@ -33,6 +33,22 @@ _As a student user, I want to be able to report damages so I can ensure maintena
 3. Requirement 3.3: Damage Report History
 	1. Requirement 3.3.1: The website shall allow student users to view their previously submitted damage reports, including status updates on maintenance or repair.
 
+## User Story 5
+_As an admin, I want to be able to add new equipment so I can keep the inventory up to date.
+
+1. Requirement 5.1: Accessing Equipment Management
+    1.	Requirement 5.1.1: The admin shall be required to log in with admin credentials to access the dashboard.
+
+2. Requirement 5.2: Adding New Equipment
+    1.	Requirement 5.2.1: The admin dashboard shall provide a form for adding new equipment.
+    2.	Requirement 5.2.2: The form shall allow the admin to input equipment details, including name, description, quantity, and current availability status.
+    3.	Requirement 5.2.3: The website shall validate that all required fields are filled before submitting the form.
+
+3. Requirement 5.3: Updating the Inventory
+    1.	Requirement 5.3.1: After the form submission, the system shall update the inventory with the new equipment data.
+    2.	Requirement 5.3.2: The updated equipment shall be immediately reflected in the list of available equipment for students to view and book.
+
+
 ## Developer Story 1
 _As a Frontend developer, I want to know what information I'm going to receive and send back to design an effective and appropriate User Interface._
 1. Requirement 1.1: Data Input and Output for Login
