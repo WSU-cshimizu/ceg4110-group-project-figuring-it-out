@@ -33,7 +33,7 @@ _As a Frontend developer, I want to know what information I'm going to receive a
 ## Developer Story 2
 _As a Frontend Developer I want to understand what data the administrators need to see, and how to properly interact with the Backend so I can display that information._
 1. Requirement 2.1: Displaying Administrative Information
-   1. Requirement 2.1.1: The Admin UI shall display a form to add new equipment.
+   1. Requirement 2.1.1: The Admin UI shall provide a form to add new equipment.
    2. Requirement 2.1.2: The Admin UI shall display a table of all added equipment.
    3. Requirement 2.1.3: The Admin UI shall display a table of all equipment bookings.
    4. Requirement 2.1.4: The Admin UI shall display the status of all added equipment.
