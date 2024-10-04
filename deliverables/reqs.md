@@ -35,7 +35,6 @@ _As a student user, I want to be able to report damages so I can ensure maintena
 
 ## User Story 5
 _As an admin, I want to be able to add new equipment so I can keep the inventory up to date.
-
 1. Requirement 5.1: Accessing Equipment Management
     1.	Requirement 5.1.1: The admin shall be required to log in with admin credentials to access the dashboard.
 
@@ -81,3 +80,32 @@ _As a Frontend developer, I want to know what validation is needed on the bookin
 2. Requirement 3.2: Error Handling and Response
     1. Requirement 3.2.1: The frontend shall display user-friendly error messages for validation failures, such as missing required fields or invalid date selections.
     1. Requirement 3.2.2: The frontend shall send validated form data to the backend and handle responses for successful and failed booking attempts.
+
+## Developer Story 4
+_As a Backend Developer, I want to manage equipment availability data through Create, Read, Update, and Delete (CRUD) operations, so the system can accurately reflect the current availability of equipment._
+
+1. Requirement 4.1: Data Input and Output for Equipment Availability
+    1. Requirement 4.1.1: The backend shall provide an API for creating new equipment availability records.
+    2. Requirement 4.1.2: The backend shall provide an API for reading the list of available equipment, including details like equipment ID, name, and availability status.
+    3. Requirement 4.1.3: The backend shall provide an API for updating and deleting the availability  of equipment.
+    3. Requirement 4.1.4: The backend shall provide an API for deleting equipment availability records.
+2. Requirement 4.2: Database Integration for Equipment Availability
+    1. Requirement 4.2.1: The backend shall store all equipments data in the MongoDB database.
+    2. Requirement 4.2.2: The database shall track equipment details
+3. Requirement 4.3: Validation and Error Handling
+    1. Requirement 4.3.1: The backend shall validate input data for equipments operations 
+    2. Requirement 4.3.2: The backend shall return appropriate error messages for invalid data and reurn relevant status code.
+
+## Developer Story 5
+_As a Backend Developer, I want to implement a damage reporting system so the admin can access and manage reports from students._
+
+1. Requirement 5.1: Damage Reporting API
+    1. Requirement 5.1.1: The system shall provide an API endpoint for students to submit damage reports.
+    2. Requirement 5.1.2: The backend shall store submitted reports in the database.
+2. Requirement 5.2: Managing Damage Reports
+    1.  Requirement 5.2.1: The system shall provide an API for admins to fetch and view all damage reports.
+    2. Requirement 5.2.2: The system shall provide an API for admins to update the status of damage reports (e.g., "In Progress," "Resolved").
+    3. Requirement 5.2.3: The system shall allow admins to delete damage reports from the database.
+3. Requirement 5.3: Validation and Error Handling
+    1. Requirement 5.3.1: The backend shall validate all required fields in the damage report submission.
+    2. Requirement 5.3.2: The backend shall return appropriate error messages for invalid data and reurn relevant status code
