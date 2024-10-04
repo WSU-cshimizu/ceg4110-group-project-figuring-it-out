@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:next\" \"npm run dev:server\"",
+    "dev:next": "cd RCEM && cd rcem_nextjs && npm run dev",
+    "dev:server": "cd RCEM && cd backendrecm && node index.js"
+  }
+}
