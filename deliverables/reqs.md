@@ -34,7 +34,7 @@ _As a student user, I want to be able to report damages so I can ensure maintena
 	1. Requirement 3.3.1: The website shall allow student users to view their previously submitted damage reports, including status updates on maintenance or repair.
 
 ## User Story 5
-_As an admin, I want to be able to add new equipment so I can keep the inventory up to date.
+_As an admin, I want to be able to add new equipment so I can keep the inventory up to date._
 
 1. Requirement 5.1: Accessing Equipment Management
     1.	Requirement 5.1.1: The admin shall be required to log in with admin credentials to access the dashboard.
