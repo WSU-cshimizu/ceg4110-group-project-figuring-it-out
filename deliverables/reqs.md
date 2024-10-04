@@ -20,6 +20,20 @@ _User Story: As an administrator, I want to be able to view the list of equipmen
 3. Requirement 2.3: Tracking and updating equipment status
     1. Requirement 2.3.1: The website shall allow the admin to view the status of the listed equipment.
     2. Requirement: 2.3.2: The website shall allow the admin to update the status of the listed equipment.
+  
+## User Story 3
+_As a student user, I want to be able to report damages so I can ensure maintenance fixes equipment for the next student._
+1. Requirement 3.1: Damage Reporting Interface
+	1. 3.1.1: The website shall provide a damage reporting form that allows users to select the equipment they want to report damage for.
+	2. 3.1.2: The form shall include fields for users to describe the type of damage, its severity, and an optional photo upload.
+	3. 3.1.3: The form shall require users to submit their student identification information with the report.
+
+2. Requirement 3.2: Submission and Confirmation
+	1. 3.2.1: Upon form submission, the website shall confirm the report by displaying a message that the damage has been successfully reported.
+	2. 3.2.2: The damage report shall be sent to the backend, which stores the report in the database for review by the maintenance team.
+
+3. Requirement 3.3: Damage Report History
+	1. 3.3.1: The website shall allow student users to view their previously submitted damage reports, including status updates on maintenance or repair.
 
 ## Developer Story 1
 _As a Frontend developer, I want to know what information I'm going to receive and send back to design an effective and appropriate User Interface._
@@ -42,3 +56,16 @@ _As a Frontend Developer I want to understand what data the administrators need 
    2. Requirement 2.2.2: The Backend shall provide a way to query the list of equipment.
    3. Requirement 2.2.3: The Backend shall provide a way to access all equipment bookings.
    4. Requirement 2.2.4: The Backend shall allow the querying and modification of all equipment status.
+  
+## Developer Story 3
+_As a Frontend developer, I want to know what validation is needed on the booking forms so that the correct data is passed to the Backend without errors._
+
+1. Requirement 3.1: Frontend Validation for Booking Forms
+    1. 3.1.1: The booking form shall validate required fields, including equipment selection, start date, and end date.
+    2. 3.1.2: The booking form shall ensure that the selected date and time do not overlap with existing reservations.
+    3. 3.1.3: The form shall validate that the end date and time are after the start date and time.
+    4. 3.1.4: The form shall restrict the selection of past dates for bookings.
+
+2. Requirement 3.2: Error Handling and Response
+    1. 3.2.1: The frontend shall display user-friendly error messages for validation failures, such as missing required fields or invalid date selections.
+    1. 3.2.2: The frontend shall send validated form data to the backend and handle responses for successful and failed booking attempts.
