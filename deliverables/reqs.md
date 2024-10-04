@@ -89,7 +89,6 @@ _As a Backend Developer, I want to manage equipment availability data through Cr
     1. Requirement 4.1.1: The backend shall provide an API for creating new equipment availability records.
     2. Requirement 4.1.2: The backend shall provide an API for reading the list of available equipment, including details like equipment ID, name, and availability status.
     3. Requirement 4.1.3: The backend shall provide an API for updating and deleting the availability  of equipment.
-    3. Requirement 4.1.4: The backend shall provide an API for deleting equipment availability records.
 2. Requirement 4.2: Database Integration for Equipment Availability
     1. Requirement 4.2.1: The backend shall store all equipments data in the MongoDB database.
     2. Requirement 4.2.2: The database shall track equipment details
