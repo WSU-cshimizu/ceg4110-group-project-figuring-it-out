@@ -109,4 +109,16 @@ _As a Backend Developer, I want to implement a damage reporting system so the ad
     3. Requirement 5.2.3: The system shall allow admins to delete damage reports from the database.
 3. Requirement 5.3: Validation and Error Handling
     1. Requirement 5.3.1: The backend shall validate all required fields in the damage report submission.
-    2. Requirement 5.3.2: The backend shall return appropriate error messages for invalid data and reurn relevant status code
+    2. Requirement 5.3.2: The backend shall return appropriate error messages for invalid data and reurn relevant status code.
+
+## Testing Story 1
+_As a tester, I want to ensure that the login page works properly so that the user will be prompted to log in before accessing any other functionality on the site._
+
+1. Requirement 1.1: Login Form Functionality
+    1. Requirement 1.1.1: The login form shall accept valid username and password combinations.
+    2. Requirement 1.1.2: The system shall display an error message when incorrect credentials are entered.
+    3. Requirement 1.1.3: Upon successful login, the user shall be redirected to the homepage or dashboard.
+2. Requirement 1.2: User Session Process
+    1. Requirement 1.2.1: The system shall validate entered credentials in the database.
+    2. Requirement 1.2.2: A session shall be created for the user upon successful authentication.
+    3. Requirement 1.2.3: The user shall remain logged in until they log out or the session expires.
