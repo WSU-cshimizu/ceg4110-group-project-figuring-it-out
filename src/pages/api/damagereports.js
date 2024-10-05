@@ -1,5 +1,7 @@
-import clientPromise from '../../lib/mongodb';
+import dbConnect from '../../lib/mongodb';
+import DamageReport from '../../models/DamageReport';
 import User from '../../models/User';
+import Equipment from '../../models/Equipment';
 
 export default async function handler(req, res) {
     try {
@@ -11,8 +13,11 @@ export default async function handler(req, res) {
         switch (method) {
             case 'GET':
                 try {
-                    const users = await db.collection('users').find({}).toArray();
-                    res.status(200).json({ success: true, data: users });
+                    const damageReports = await DamageReport.find({})
+                        .populate('linkedEquipment')
+                        .populate('reportingUser')
+                        .populate('lastUser');
+                    res.status(200).json({ success: true, data: damageReports });
                 } catch (error) {
                     res.status(400).json({ success: false, error: error.message });
                 }
@@ -20,9 +25,8 @@ export default async function handler(req, res) {
 
             case 'POST':
                 try {
-                    const newUser = req.body;
-                    const result = await db.collection('users').insertOne(newUser); // Insert a new user
-                    res.status(201).json({ success: true, data: result });
+                    const damageReport = await DamageReport.create(req.body);
+                    res.status(201).json({ success: true, data: damageReport });
                 } catch (error) {
                     res.status(400).json({ success: false, error: error.message });
                 }
