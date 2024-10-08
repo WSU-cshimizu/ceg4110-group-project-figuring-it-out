@@ -24,4 +24,4 @@ Minimum Viable Specifications
 
 ## Signatures
 <!-- Add signatures on 10/08/2024 -->
-Skylar Shaffer, Estuardo Marroquins
+Skylar Shaffer, Estuardo Marroquins, Adarsha Subedi, Shishir Paudel
