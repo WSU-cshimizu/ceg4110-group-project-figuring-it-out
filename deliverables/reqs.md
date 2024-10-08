@@ -33,6 +33,18 @@ _As a student user, I want to be able to report damages so I can ensure maintena
 3. Requirement 3.3: Damage Report History
 	1. Requirement 3.3.1: The website shall allow student users to view their previously submitted damage reports, including status updates on maintenance or repair.
 
+## User Story 4
+_As a student user, I want to be able to check the availability of equipment online so that I book them remotely.
+
+1. Requirement 4.1: Accessing the Equipment listing
+    1. Requirement 4.1.1: The user shall be required to log in with student credentials to access the Interface
+
+2. Requirement 4.2: Booking an equipment
+    1. Requirement 4.2.1: The Interface shall show the list of available equipment
+    2. Requirement 4.2.2: The Interface shall have a button to book the equipment
+    3. Requirement 4.2.3: The Interface shall show which equipment is currently booked by the student
+    4. Requirement 4.2.4: The Interface shall show the deadline to submit the booked equipment
+
 ## User Story 5
 _As an admin, I want to be able to add new equipment so I can keep the inventory up to date._
 
@@ -121,3 +133,18 @@ _As a tester, I want to ensure that the login page works properly so that the us
     1. Requirement 1.2.1: The system shall validate entered credentials in the database.
     2. Requirement 1.2.2: A session shall be created for the user upon successful authentication.
     3. Requirement 1.2.3: The user shall remain logged in until they log out or the session expires.
+
+## Testing Story 2
+_As a  tester, I want to test that the admin can add, update and remove the equipment without any issue.
+
+1. Requirement 2.1: CRUD Functionality
+    1. Requirement 2.1.1: The Interface shall show all the equipments and status on the page
+    2. Requirement 2.1.2: The admin shall be able to add new item using a create button
+    3. Requirement 2.1.3: The admin shall be able to remove item using a delete button
+    4. Requirement 2.1.4: The admin shall be able to update the details of an item using update button
+
+
+## Testing Story 3
+_As a tester, I want to test that after student report a damage to an equipment then it will be immediately reflected in the admin view.
+
+1. Requirement 3.1: The reported item shall be flagged in the admin dashboard
