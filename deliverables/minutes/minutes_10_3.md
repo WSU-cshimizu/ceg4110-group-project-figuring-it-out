@@ -1,4 +1,4 @@
-# Meeting Minutes (10/01/2024)
+# Meeting Minutes (10/03/2024)
 
 ## Administrivia
 <!-- The scribe is the person taking the _notes_. This is encouraged to be a single person to reduce problems. -->
@@ -24,4 +24,4 @@ Minimum Viable Specifications
 
 ## Signatures
 <!-- Add signatures on 10/08/2024 -->
-Skylar Shaffer
+Skylar Shaffer, Estuardo Marroquins
