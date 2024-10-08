@@ -1,3 +1,4 @@
+
 const bookingSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     equipmentId: { type: mongoose.Schema.Types.ObjectId, ref: 'Equipment', required: true },
