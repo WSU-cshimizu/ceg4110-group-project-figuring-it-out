@@ -26,4 +26,4 @@ Project setup and familiarization to every team member
 
 ## Signatures
 <!-- Add signatures on 10/11/2024 -->
-Adarsha Subedi
+Adarsha Subedi, Shishir Paudel
