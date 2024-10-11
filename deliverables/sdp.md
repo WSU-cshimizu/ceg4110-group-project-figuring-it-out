@@ -39,7 +39,7 @@ As also demonstrated on the Gantt Chart, we have anticipated the following miles
 
 **Milestone 1:** Requirement Specifications to be completed by October 4, 2024
 
-**Milestone 2:** Project Startup and Design Specifications to be ready by Oct 11, 2024
+**Milestone 2:** Project Startup and Design Specifications to be ready by Oct 18, 2024
 
 **Milestone 3:** User Authentication, Booking System, and Testing to be done by Oct 25, 2024
 
@@ -66,5 +66,5 @@ We anticipate it to be completed by Oct 28, 2024.
 Ready on October 4, 2024
 
 ### Design Specification
-
-Ready on October 11, 2024.
+<!-- Moved back a week due to meeting scheduling issues. -->
+Ready on October 18, 2024.
