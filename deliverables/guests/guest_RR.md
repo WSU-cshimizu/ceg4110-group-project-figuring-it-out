@@ -21,3 +21,4 @@ keep everyone on the same page with what they need to do without getting people 
 
 ## Differences in Teaching
 Minimum Usable Product is more accurate than minimum viable product. The most basic version of your product that people would still use.
+After gathering requirements, rapid prototyping is conducted before transitioning to Agile development.
