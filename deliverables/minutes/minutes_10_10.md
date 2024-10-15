@@ -24,4 +24,4 @@ Adjust the date
 
 ## Signatures
 <!-- Add signatures on 10/11/2024 -->
-Shishir Paudel, Adarsha Subedi
+Shishir Paudel, Adarsha Subedi, Skylar Shaffer
