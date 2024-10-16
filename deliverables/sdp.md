@@ -12,7 +12,8 @@ Outside of the specific meeting times we anticipate communicating via the text c
 
 ### Meeting Location(s)
 
-Tuesdays in FH 204 and on Discord, and Thursday on Discord
+- Tuesdays in FH 204 and on Discord
+- Thursday on Discord
 
 ### Meeting Time(s)
 
