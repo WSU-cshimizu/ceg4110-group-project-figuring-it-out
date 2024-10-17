@@ -38,8 +38,12 @@ const signUp = async (req, res) => {
 
 const login = async (req, res) => {
   const { username, password, role } = req.body;
+
   try {
-    const existingUser = await adminModel.findOne({ username: username });
+    const existingUser = await adminModel.findOne({
+      username: username,
+      role: role,
+    });
     if (!existingUser) {
       return res.json({ message: "User Not Found !!", success: false });
     }
@@ -62,4 +66,44 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { signUp, login };
+const reset = async (req, res) => {
+  const { username, password, newpassword } = req.body;
+
+  try {
+    const existingUser = await adminModel.findOne({ username: username });
+    const authorizedUser = await bcrypt.compare(
+      password,
+      existingUser.password
+    );
+
+    if (authorizedUser && existingUser) {
+      const hasedPassword = await bcrypt.hash(newpassword, 10);
+      await adminModel.findOneAndUpdate(
+        { username: username },
+        {
+          $set: {
+            password: hasedPassword,
+          },
+        }
+      );
+      res.json({ success: true, message: "Updated Succeessfully" });
+    }
+    if (!authorizedUser) {
+      return res.json({
+        message: "Provided Password Is Incorrect",
+        success: false,
+      });
+    }
+    if (!existingUser) {
+      return res.json({
+        message: "username not found",
+        success: false,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ message: error.message, success: false });
+  }
+};
+
+module.exports = { signUp, login, reset };
