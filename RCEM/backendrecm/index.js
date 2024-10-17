@@ -9,9 +9,9 @@ const port = 5000; // Define the port
 app.use(express.json());
 
 // Route to handle requests
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+
+app.use("/", require("./routes/router"));
+
 
 // Connect to MongoDB and start the server
 mongoose
