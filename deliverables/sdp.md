@@ -39,7 +39,7 @@ As also demonstrated on the Gantt Chart, we have anticipated the following miles
 
 **Milestone 1:** Requirement Specifications to be completed by October 4, 2024
 
-**Milestone 2:** Project Startup and Design Specifications to be ready by Oct 18, 2024
+**Milestone 2:** Project Startup and Minimum Viable Specifications document to be ready by Oct 18, 2024
 
 **Milestone 3:** User Authentication, Booking System, and Testing to be done by Oct 25, 2024
 
@@ -47,7 +47,7 @@ As also demonstrated on the Gantt Chart, we have anticipated the following miles
 
 **Milestone 5:** Final Testing, Debugging and System Deployment to be completed by Nov 22, 2024
 
-### MVSs Timeline
+### MVS Timeline
 
 Following will be the features for the MVS of our System:
 
@@ -59,12 +59,10 @@ Following will be the features for the MVS of our System:
 
 -**Admin Dashboard:** Admins can manage equipment and view booking status.
 
-We anticipate it to be completed by Oct 28, 2024.
-
 ### Requirement Specification
 
 Ready on October 4, 2024
 
 ### Design Specification
 <!-- Moved back a week due to meeting scheduling issues. -->
-Ready on October 18, 2024.
+Ready on October 25, 2024.
