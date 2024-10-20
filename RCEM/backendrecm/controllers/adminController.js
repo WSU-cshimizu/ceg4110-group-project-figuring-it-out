@@ -1,4 +1,5 @@
-const adminModel = require("../models/User.js");
+ const adminModel = require("../models/User.js");
+const equipment = require('../models/Equipments.js');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const SERCRET_KEY = "RCEM";
@@ -106,4 +107,186 @@ const reset = async (req, res) => {
   }
 };
 
-module.exports = { signUp, login, reset };
+
+const getAllEquipments = async (req, res) => {
+  try {
+    const equipments = await equipment.find();
+
+    res.status(200).json({
+      success: true,
+      data: equipments
+    });
+
+  } catch (error) {
+    console.error('Error fetching equipments:', error);
+
+    res.status(500).json({
+      success: false,
+      messsage: "Server Error: Unable to fetch equipments"
+    });
+  }
+
+};
+
+const getEquipmentById = async (req, res) => {
+  try {
+    const { id } = req.query;
+
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: 'Equipment ID is required.'
+      });
+    }
+
+    const eqpmnt = await equipment.findById(id);
+
+    if (!equipment) {
+      return res.status(404).json({
+        success: false,
+        message: 'Equipment not found.'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: eqpmnt
+    });
+
+  } catch(error){
+    console.error('Error Fetching equipment by ID: ', error);
+
+    res.status(500).json({
+      success: false,
+      message: 'Server Error: Unable to fetch equipment by ID.'
+    });
+  }
+};
+
+const addEquipment = async (req, res) => {
+
+  try {
+    const { name, description, availabilityStatus } = req.body;
+
+    if (!name || !description) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide name and description of the equipment.'
+      });
+    }
+
+    const newEquipment = new equipment({
+      name,
+      description,
+      availabilityStatus: availabilityStatus !== undefined ? availabilityStatus : true
+    });
+
+    const savedEquipment = await newEquipment.save();
+
+    res.status(201).json({
+      success: true,
+      data: savedEquipment
+    });
+
+  } catch (error) {
+    console.error('Error adding equipment:', error);
+
+    res.status(500).json({
+      success: false,
+      message: 'Server Error: Unable to add Equipment.'
+    });
+
+  }
+
+};
+
+const updateEquipment = async (req, res) => {
+
+  try{
+    const { id, name, description, availabilityStatus } = req.body;
+
+    if(!id){
+      return res.status(400).json({
+        success: false,
+        message: 'Equipment ID is required.'
+      });
+    }
+
+    const updateEquipment = await equipment.findByIdAndUpdate(
+      id, 
+      {
+        name,
+        description,
+        availabilityStatus,
+        updatedAt: Date.now()
+      }, 
+      {new: true, runValidators: true}
+    );
+
+    res.status(200).json({
+      success: true,
+      data: updateEquipment
+    });
+
+  } catch (error){
+
+    console.error('Error updating equipment:', error);
+
+    res.status(500).json({
+      success: false,
+      message: 'Server Error: Unable to update equipment.'
+    });
+
+  }
+
+}
+
+const deleteEquipment = async (req, res) => {
+  try{
+    const { id } = req.query;
+
+    if(!id){
+      res.status(400).json({
+        succes: false,
+        message: 'Equipment ID is required.'
+      });
+    }
+
+    const deletedEquipment = await equipment.findByIdAndDelete(id);
+
+    if (!deletedEquipment) {
+      return res.status(404).json({
+        success: false,
+        message: 'Equipment not found.'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: 'Equipment deleted successfully.',
+      data: deletedEquipment
+    });
+
+  } catch (error) {
+    console.error('Error deleting equipment:', error);
+
+    res.status(500).json({
+      success: false,
+      message: 'Server Error: Unable to delete equipment.'
+    });
+  }
+
+};
+
+
+
+module.exports = { 
+  signUp, 
+  login, 
+  reset, 
+  getAllEquipments, 
+  getEquipmentById,
+  addEquipment,
+  updateEquipment,
+  deleteEquipment
+};
