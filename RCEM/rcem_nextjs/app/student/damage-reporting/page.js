@@ -13,7 +13,7 @@ function page() {
               type="text"
               name="equipmentId"
               id="equipmentId"
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
               placeholder="Enter Equipment ID"
             />
           </div>
@@ -26,7 +26,7 @@ function page() {
               name="description"
               id="description"
               rows="4"
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm resize-none"
               placeholder="Describe the damage..."
             ></textarea>
           </div>
