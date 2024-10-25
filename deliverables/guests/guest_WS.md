@@ -16,3 +16,4 @@ and how long they take.
 They were able to make use of existing transactional data with machine learning to determine how to handle future situations.
 
 ## Differences in Teaching
+Applying different software development methodologies based on specific project needs, using roadmaps instead of fully relying on user stories to track
