@@ -8,7 +8,7 @@
 * Question 2
 
 ## Lessons Learned
-Text paragraph.
+A lack of planning in agile will largely turn it into waterfall.
 
 Text paragraph.
 
