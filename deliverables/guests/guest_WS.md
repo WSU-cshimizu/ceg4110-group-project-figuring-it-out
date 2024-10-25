@@ -10,7 +10,8 @@
 ## Lessons Learned
 A lack of planning in agile will largely turn it into waterfall.
 
-Text paragraph.
+They treat their internal teams like third party contractors with regards to bidding on how expensive projects are
+and how long they take.
 
 Text paragraph.
 
