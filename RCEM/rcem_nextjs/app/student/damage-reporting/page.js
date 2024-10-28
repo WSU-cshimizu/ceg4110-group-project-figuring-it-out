@@ -1,6 +1,6 @@
 function page() {
   return (
-    <div className="h-screen w-screen bg-gray-100 flex items-center justify-center">
+    <div className="flex flex-col h-screen  bg-gray-100 items-center justify-center">
       <div className="w-full max-w-lg p-6 bg-white shadow-md rounded-lg">
         <h1 className="text-2xl font-semibold mb-6 text-gray-600">Report Damage</h1>
         <form className="space-y-6">
@@ -39,13 +39,13 @@ function page() {
               type="file"
               name="image"
               id="image"
-              className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-indigo-100"
+              className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-green-200"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full px-4 py-2 bg-green-700 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full px-4 py-2 bg-green-700 text-white rounded-md shadow-sm hover:bg-green-800"
           >
             Submit Damage Report
           </button>
