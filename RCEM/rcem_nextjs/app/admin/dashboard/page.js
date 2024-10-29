@@ -16,21 +16,21 @@ function page() {
                       type = "text"
                       name = "eqipmentName"
                       id = "equpmentName"
-                      className = "block mt-1 mb-2 p-1 w-full border border-gray-600 shadow-sm"
+                      className = "block mt-1 mb-2 p-1 w-full text-sm border border-gray-600 shadow-sm"
                       placeholder = "Enter Equipment Name" />
                     <label htmlFor="equipmentId" className = "block text-sm font-medium text-gray-700 space-y-6">Equipment ID</label>
                     <input
                       type = "text"
                       name = "eqipmentId"
                       id = "equpmentId"
-                      className = "block mt-1 mb-2 p-1 w-full border border-gray-600 shadow-sm"
+                      className = "block mt-1 mb-2 p-1 w-full text-sm border border-gray-600 shadow-sm"
                       placeholder = "Enter Equipment Id" />
                     <label htmlFor="quantity" className = "block text-sm font-medium text-gray-700 space-y-6">Quantity</label>
                     <input
                       type = "text"
                       name = "quantity"
                       id = "quantity"
-                      className = "block mt-1 mb-2 p-1 w-full border border-gray-600 shadow-sm"
+                      className = "block mt-1 mb-2 p-1 w-full text-sm border border-gray-600 shadow-sm"
                       placeholder = "Enter Quantity" />
                       <button className="mx-1 p-1 text-sm border border-gray-600 shadow-sm">Add Item</button>
                       <button className="mx-1 p-1 text-sm border border-gray-600 shadow-sm">Reset</button>
