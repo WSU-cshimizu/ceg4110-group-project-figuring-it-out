@@ -5,7 +5,7 @@ const {} = require("../controllers/studentController");
 const { getAllEquipments } = require("../controllers/adminController");
 
 studentRouter.get("/allEquipments", getAllEquipments);
-studentRouter.get("/bookEquipment", getEquipmentById);
-studentRouter.put("/reportEquipment", updateEquipment);
+// studentRouter.get("/bookEquipment", getEquipmentById);
+// studentRouter.put("/reportEquipment", updateEquipment);
 
 module.exports = studentRouter;
