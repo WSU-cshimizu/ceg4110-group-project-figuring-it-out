@@ -38,16 +38,18 @@ function page() {
                 Login
               </button>
 
-              <button
+             <a href="signup">
+             <button
                 type="button"
                 className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md shadow-sm hover:bg-gray-400"
               >
                 Create New Account
               </button>
+             </a>
             </div>
 
             <div>
-              <a href="#" className="text-sm text-blue-500 hover:underline">Forget Password?</a>
+              <a href="forget-password" className="text-sm text-blue-500 hover:underline">Forget Password?</a>
             </div>
 
           </form>
