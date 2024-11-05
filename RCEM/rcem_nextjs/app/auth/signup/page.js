@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function page() {
   return (
     <div className="flex flex-col h-screen">
@@ -79,12 +81,12 @@ function page() {
             </div>
 
             <div>
-              <a
+              <Link
                 href="login"
                 className="text-sm text-blue-500 hover:underline"
               >
                Already have an Account?
-              </a>
+              </Link>
             </div>
           </form>
         </div>
