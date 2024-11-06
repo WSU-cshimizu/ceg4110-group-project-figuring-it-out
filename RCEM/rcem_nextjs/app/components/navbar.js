@@ -17,18 +17,11 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/about" className="text-gray-300 hover:text-white">
+            <Link href="../student" className="text-gray-300 hover:text-white">
               Book Equipments
             </Link>
           </li>
-          <li>
-            <Link
-              href="../admin/equipments"
-              className="text-gray-300 hover:text-white"
-            >
-              View Equipments
-            </Link>
-          </li>
+         
           <li>
             <Link
               href="../student/damage-reporting"
