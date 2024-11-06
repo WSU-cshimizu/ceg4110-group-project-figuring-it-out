@@ -25,5 +25,6 @@ We have merged everything we have currently into main and think we are on track 
 Milestone 4
 
 ## Signatures
+Estuardo Marroquin
 <!-- Add signatures on 11/7/2024 -->
 
