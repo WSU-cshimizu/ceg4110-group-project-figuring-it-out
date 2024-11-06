@@ -21,6 +21,11 @@ export default function Navbar() {
               Book Equipments
             </Link>
           </li>
+          <li>
+            <Link href="../admin/equipments" className="text-gray-300 hover:text-white">
+              Equipment Bookings
+            </Link>
+          </li>
          
           <li>
             <Link

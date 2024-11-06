@@ -12,7 +12,7 @@ function page() {
     <PageLayout>
       <div className="flex flex-col gap-8">
         <h2 className="font-semibold text-xl">All Equipments</h2>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 justify-start ">
           {[1, 1, 1, 1, 1].map((item, index) => {
             // State to handle the quantity
             const [quantity, setQuantity] = useState(0);
@@ -32,11 +32,11 @@ function page() {
             return (
               <div
                 key={index}
-                className="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 border rounded-lg shadow-lg"
+                className="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 lg:w-1/5 p-4 border rounded-lg shadow-lg"
               >
                 <img
                   className="rounded-xl mb-4"
-                  height="100px"
+                  height="80px"
                   width="200px"
                   src="https://img.freepik.com/premium-photo/illustrative-cat-bike-funny-animal-riding-cycle-generative-ai_116317-27258.jpg"
                   alt="Product"
@@ -73,10 +73,12 @@ function page() {
   );
 }
 
-
 const MyCalendar = () => {
   // Initialize state with both date and time (empty strings as default)
-  const [selectedDateTime, setSelectedDateTime] = useState({ date: null, time: null });
+  const [selectedDateTime, setSelectedDateTime] = useState({
+    date: null,
+    time: null,
+  });
 
   const handleDateChange = (e) => {
     setSelectedDateTime({ ...selectedDateTime, date: e.target.value });
