@@ -16,7 +16,7 @@ Noted of course that it is only early november so things are incomplete.
 
 We recieved a respectable score of 77.5 from them as shown in the included image. Their biggest complaint is that our site is not connected yet. We gave them an 85 as their design was very clean and usable.
 
-In the Discord meeting we discussed changes to the admin vies and equipment views. Decided on moving the bookings view to a different page.
+In the Discord meeting we discussed changes to the admin viwes and equipment views. Decided on moving the bookings view to a different page.
 
 We have merged everything we have currently into main and think we are on track for milestone 4.
 
