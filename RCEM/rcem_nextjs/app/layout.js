@@ -3,6 +3,7 @@
 
 import localFont from "next/font/local";
 import "./globals.css";
+import DashboardLayout from "./components/navigationbar";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Navbar from "./components/navbar";
