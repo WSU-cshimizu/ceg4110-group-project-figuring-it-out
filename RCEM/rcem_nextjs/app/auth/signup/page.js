@@ -4,18 +4,6 @@ function page() {
   return (
     <div className="flex flex-col h-screen">
       <div className="flex flex-1 bg-white">
-<<<<<<< HEAD
-
-        <div className="w-1/2 p-8 border-r border-gray-300">
-
-          <h1 className="text-3xl font-semibold mb-6 text-gray-700">Signup</h1>
-          <p className="mb-4 text-gray-700">Create an Account</p>
-
-          <form className="space-y-4">
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email/Username</label>
-=======
         <div className="w-1/2 p-8 border-r border-gray-300">
           <h1 className="text-3xl font-semibold mb-6 text-gray-700">Login</h1>
           <p className="mb-4 text-gray-700">
@@ -30,7 +18,6 @@ function page() {
               >
                 Email/Username
               </label>
->>>>>>> origin
               <input
                 type="text"
                 id="email"
@@ -39,16 +26,12 @@ function page() {
               />
             </div>
             <div>
-<<<<<<< HEAD
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
-=======
               <label
                 htmlFor="name"
                 className="block text-sm font-medium text-gray-700"
               >
                 Full Name
               </label>
->>>>>>> origin
               <input
                 type="text"
                 id="name"
@@ -58,16 +41,12 @@ function page() {
             </div>
 
             <div>
-<<<<<<< HEAD
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-=======
               <label
                 htmlFor="password"
                 className="block text-sm font-medium text-gray-700"
               >
                 Password
               </label>
->>>>>>> origin
               <input
                 type="password"
                 id="password"
@@ -76,12 +55,6 @@ function page() {
               />
             </div>
             <div>
-<<<<<<< HEAD
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Confirm Password</label>
-              <input
-                type="password"
-                id="password"
-=======
               <label
                 htmlFor="confirm-password"
                 className="block text-sm font-medium text-gray-700"
@@ -91,7 +64,6 @@ function page() {
               <input
                 type="password"
                 id="confirmpassword"
->>>>>>> origin
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
                 placeholder="Confirm Password"
               />
@@ -102,18 +74,6 @@ function page() {
                 type="submit"
                 className="px-4 py-2 bg-green-700 text-white rounded-md shadow-sm hover:bg-green-800"
               >
-<<<<<<< HEAD
-                Signup
-              </button>
-
-
-            </div>
-
-            <div>
-              <a href="login" className="text-sm text-blue-500 hover:underline">Already Have an Account? </a>
-            </div>
-
-=======
                 Sign up
               </button>
 
@@ -128,7 +88,6 @@ function page() {
                Already have an Account?
               </Link>
             </div>
->>>>>>> origin
           </form>
         </div>
 
@@ -137,10 +96,6 @@ function page() {
             <div className="text-gray-400">Not sure</div>
           </div>
         </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
       </div>
     </div>
   );
