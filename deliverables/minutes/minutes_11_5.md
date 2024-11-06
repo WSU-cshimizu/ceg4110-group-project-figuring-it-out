@@ -7,7 +7,8 @@
 * Scribe: Skylar Shaffer
 
 ## Agenda
-* In SUS UX/UI Test
+* SUS UX/UI Test
+* Milestone 4
 
 ## Notes
 ![diagrams](../../assets/SUS.jpg)
