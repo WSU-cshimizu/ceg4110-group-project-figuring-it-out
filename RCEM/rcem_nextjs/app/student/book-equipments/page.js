@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
-import PageLayout from "../components/pageLayout";
-import { Calendar, DatePicker } from "@nextui-org/react";
-import { ZonedDateTime } from "@internationalized/date";
+import PageLayout from "../../components/pageLayout";
+
 
 function page() {
   // Initial in-stock quantity

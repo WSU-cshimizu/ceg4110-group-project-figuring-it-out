@@ -52,7 +52,7 @@ const login = async (req, res) => {
     // Find the user based on username and role
     const existingUser = await userModel.findOne({
       username: username,
-      role: "student",
+      role: role,
     });
     if (!existingUser) {
       return res.json({ message: "User Not Found !!", success: false });

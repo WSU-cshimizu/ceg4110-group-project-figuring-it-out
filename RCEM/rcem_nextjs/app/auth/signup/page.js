@@ -2,13 +2,21 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { toast } from "react-toastify";
 
-function Page() {
+function SignupPage() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     confirmPassword: "",
-    role: "admin", // Default role; change as needed or add a select dropdown
+    role: "student", // Default role
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    username: "",
+    password: "",
+    confirmPassword: "",
+    role: "",
   });
 
   const handleInputChange = (e) => {
@@ -16,13 +24,29 @@ function Page() {
     setFormData((prevData) => ({ ...prevData, [id]: value }));
   };
 
+  const validateForm = () => {
+    const errors = {
+      username: formData.username ? "" : "Username is required",
+      password: formData.password ? "" : "Password is required",
+      confirmPassword: formData.confirmPassword
+        ? formData.confirmPassword !== formData.password
+          ? "Passwords do not match"
+          : ""
+        : "Please confirm your password",
+      role: formData.role ? "" : "Role selection is required",
+    };
+    setFormErrors(errors);
+
+    // Return false if there are any errors
+    return !Object.values(errors).some((error) => error);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation for matching passwords
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
-      return;
+    // Validate form
+    if (!validateForm()) {
+      return; // Don't submit the form if validation fails
     }
 
     try {
@@ -36,13 +60,17 @@ function Page() {
       );
 
       if (response.data.success) {
-        alert("Signup successful!");
+        toast.success("Account created Successfully");
+
+        router.push("/admin/dashboard");
       } else {
         alert(response.data.message);
+        toast.success(response.data.message);
       }
     } catch (error) {
       console.error("Error signing up:", error);
-      alert("Error signing up. Please try again later.");
+      toast.error("Error signing up. Please try again later.");
+
     }
   };
 
@@ -66,8 +94,10 @@ function Page() {
                 onChange={handleInputChange}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
                 placeholder="Username"
-                required
               />
+              {formErrors.username && (
+                <p className="text-red-500 text-sm">{formErrors.username}</p>
+              )}
             </div>
 
             <div>
@@ -84,8 +114,10 @@ function Page() {
                 onChange={handleInputChange}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
                 placeholder="Password"
-                required
               />
+              {formErrors.password && (
+                <p className="text-red-500 text-sm">{formErrors.password}</p>
+              )}
             </div>
 
             <div>
@@ -102,8 +134,33 @@ function Page() {
                 onChange={handleInputChange}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
                 placeholder="Confirm Password"
-                required
               />
+              {formErrors.confirmPassword && (
+                <p className="text-red-500 text-sm">
+                  {formErrors.confirmPassword}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <label
+                htmlFor="role"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Role
+              </label>
+              <select
+                id="role"
+                value={formData.role}
+                onChange={handleInputChange}
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+              >
+                <option value="student">Student</option>
+                <option value="admin">Admin</option>
+              </select>
+              {formErrors.role && (
+                <p className="text-red-500 text-sm">{formErrors.role}</p>
+              )}
             </div>
 
             <div className="flex space-x-4">
@@ -117,7 +174,7 @@ function Page() {
 
             <div>
               <Link
-                href="/login"
+                href="/auth/login"
                 className="text-sm text-blue-500 hover:underline"
               >
                 Already have an account?
@@ -128,7 +185,9 @@ function Page() {
 
         <div className="w-1/2 flex items-center justify-center">
           <div className="w-3/4 h-3/4 bg-gray-200 flex items-center justify-center">
-            <div className="text-gray-400">Not sure</div>
+            <div className="text-gray-400">
+              Welcome to the Recreation Center!
+            </div>
           </div>
         </div>
       </div>
@@ -136,4 +195,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default SignupPage;

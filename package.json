@@ -8,6 +8,7 @@
     "dev:server": "cd RCEM && cd backendrecm && node index.js"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "js-cookie": "^3.0.5"
   }
 }
