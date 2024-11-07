@@ -1,42 +1,72 @@
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
+import axios from "axios";
 
-function page() {
+function Page() {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    confirmPassword: "",
+    role: "admin", // Default role; change as needed or add a select dropdown
+  });
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [id]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Basic validation for matching passwords
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/signUP",
+        {
+          username: formData.username,
+          password: formData.password,
+          role: formData.role,
+        }
+      );
+
+      if (response.data.success) {
+        alert("Signup successful!");
+      } else {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.error("Error signing up:", error);
+      alert("Error signing up. Please try again later.");
+    }
+  };
+
   return (
     <div className="flex flex-col h-screen">
       <div className="flex flex-1 bg-white">
         <div className="w-1/2 p-8 border-r border-gray-300">
-          <h1 className="text-3xl font-semibold mb-6 text-gray-700">Login</h1>
-          <p className="mb-4 text-gray-700">
-            To log in, please enter your email address and password.
-          </p>
-
-          <form className="space-y-4">
+          <h1 className="text-3xl font-semibold mb-6 text-gray-700">Sign Up</h1>
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label
-                htmlFor="email"
+                htmlFor="username"
                 className="block text-sm font-medium text-gray-700"
               >
-                Email/Username
+                Username
               </label>
               <input
                 type="text"
-                id="email"
+                id="username"
+                value={formData.username}
+                onChange={handleInputChange}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                placeholder="Email/username"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Full Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                placeholder="Full Name"
+                placeholder="Username"
+                required
               />
             </div>
 
@@ -50,22 +80,29 @@ function page() {
               <input
                 type="password"
                 id="password"
+                value={formData.password}
+                onChange={handleInputChange}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
                 placeholder="Password"
+                required
               />
             </div>
+
             <div>
               <label
-                htmlFor="confirm-password"
+                htmlFor="confirmPassword"
                 className="block text-sm font-medium text-gray-700"
               >
                 Confirm Password
               </label>
               <input
                 type="password"
-                id="confirmpassword"
+                id="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
                 placeholder="Confirm Password"
+                required
               />
             </div>
 
@@ -74,18 +111,16 @@ function page() {
                 type="submit"
                 className="px-4 py-2 bg-green-700 text-white rounded-md shadow-sm hover:bg-green-800"
               >
-                Sign up
+                Sign Up
               </button>
-
-           
             </div>
 
             <div>
               <Link
-                href="login"
+                href="/login"
                 className="text-sm text-blue-500 hover:underline"
               >
-               Already have an Account?
+                Already have an account?
               </Link>
             </div>
           </form>
@@ -101,4 +136,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

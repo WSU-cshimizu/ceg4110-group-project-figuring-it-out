@@ -1,14 +1,19 @@
- const adminModel = require("../models/User.js");
+ const adminModel = require("../models/Admin.js");
 const equipment = require('../models/Equipments.js');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const Student = require("../models/Student.js");
 const SERCRET_KEY = "RCEM";
 
 const signUp = async (req, res) => {
   const { username, password, role } = req.body;
+  
   try {
+    // Determine which model to use based on the role
+    const userModel = role === 'admin' ? adminModel : Student;
+
     // Check if the user already exists
-    const existingUser = await adminModel.findOne({ username });
+    const existingUser = await userModel.findOne({ username });
     if (existingUser) {
       return res.status(409).json({
         success: false,
@@ -20,7 +25,7 @@ const signUp = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create the new user
-    const createdUser = await adminModel.create({
+    const createdUser = await userModel.create({
       username: username,
       password: hashedPassword,
       role: role,
@@ -41,71 +46,81 @@ const login = async (req, res) => {
   const { username, password, role } = req.body;
 
   try {
-    const existingUser = await adminModel.findOne({
+    // Determine which model to use based on the role
+    const userModel = role === 'admin' ? adminModel : Student;
+
+    // Find the user based on username and role
+    const existingUser = await userModel.findOne({
       username: username,
-      role: role,
+      role: "student",
     });
     if (!existingUser) {
       return res.json({ message: "User Not Found !!", success: false });
     }
+
+    // Check if the provided password matches the stored hashed password
     const authorizedUser = await bcrypt.compare(
       password,
       existingUser.password
     );
     if (!authorizedUser) {
-      return res.json({ message: "Credentials Not Valid ", success: false });
+      return res.json({ message: "Credentials Not Valid", success: false });
     }
 
+    // Generate a JWT token
     const token = jwt.sign(
       { username: existingUser.username, id: existingUser._id },
       SERCRET_KEY
     );
+    
     res.json({ success: true, data: existingUser, token: token });
   } catch (error) {
-    console.log(error);
+    console.log("Error during login:", error);
     res.json({ message: error.message, success: false });
   }
 };
 
 const reset = async (req, res) => {
-  const { username, password, newpassword } = req.body;
+  const { username, password, newpassword, role } = req.body;
 
   try {
-    const existingUser = await adminModel.findOne({ username: username });
-    const authorizedUser = await bcrypt.compare(
-      password,
-      existingUser.password
-    );
+    // Determine which model to use based on the role
+    const userModel = role === 'admin' ? adminModel : Student;
 
-    if (authorizedUser && existingUser) {
-      const hasedPassword = await bcrypt.hash(newpassword, 10);
-      await adminModel.findOneAndUpdate(
-        { username: username },
-        {
-          $set: {
-            password: hasedPassword,
-          },
-        }
-      );
-      res.json({ success: true, message: "Updated Succeessfully" });
-    }
-    if (!authorizedUser) {
-      return res.json({
-        message: "Provided Password Is Incorrect",
-        success: false,
-      });
-    }
+    // Find the user based on username
+    const existingUser = await userModel.findOne({ username: username });
     if (!existingUser) {
       return res.json({
-        message: "username not found",
+        message: "Username not found",
         success: false,
       });
     }
+
+    // Verify the current password
+    const authorizedUser = await bcrypt.compare(password, existingUser.password);
+    if (!authorizedUser) {
+      return res.json({
+        message: "Provided password is incorrect",
+        success: false,
+      });
+    }
+
+    // Hash the new password and update it
+    const hashedPassword = await bcrypt.hash(newpassword, 10);
+    await userModel.findOneAndUpdate(
+      { username: username },
+      {
+        $set: { password: hashedPassword },
+      }
+    );
+
+    res.json({ success: true, message: "Updated successfully" });
   } catch (error) {
-    console.log(error);
+    console.log("Error during password reset:", error);
     res.json({ message: error.message, success: false });
   }
 };
+
 
 
 const getAllEquipments = async (req, res) => {
