@@ -13,3 +13,5 @@
 * Don't reinvent the wheel, there is a limit to the number of project someone can maintain in a day.
 
 ## Differences in Teaching
+
+* Agile does not mean exactly one thing. Leland's teams only really use Kanban boards, as that is the only part they have found useful.
