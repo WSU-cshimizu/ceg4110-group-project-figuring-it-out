@@ -23,7 +23,7 @@ I am a Senior at Wright State majoring in Comp Sci.
 ## Deliverables Location
 
 ### Meeting Minutes
-Meeting Minutes will be collected in `deliverables/minutes/` in the format `minutes_M-DD.md`.
+Meeting Minutes will be collected in `deliverables/minutes/` in the format `minutes_MM-DD.md`.
 
 ### Project Overview Proposal
 Project Overview Proposal is located at `deliverables/pop.md`.
