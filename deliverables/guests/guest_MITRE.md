@@ -9,7 +9,7 @@
 
 ## Lessons Learned
 * Projects are not pets, so don't get attached. They are cattle.
-
+* Keep good notes and don't keep secrets, no one likes that guy.
 * Don't reinvent the wheel, there is a limit to the number of project someone can maintain in a day.
 
 ## Differences in Teaching
