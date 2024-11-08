@@ -10,4 +10,6 @@
 ## Lessons Learned
 * Projects are not pets, so don't get attached. They are cattle.
 
+* Don't reinvent the wheel, there is a limit to the number of project someone can maintain in a day.
+
 ## Differences in Teaching
