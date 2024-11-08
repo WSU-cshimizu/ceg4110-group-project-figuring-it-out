@@ -5,7 +5,7 @@
 
 ## Pertinent Questions
 * So, what should you learn? As much as you can. Even one tool from each category is enough.
-* 
+* How to keep from getting overwhelmed? Don't take on or maintain too many projects.
 
 ## Lessons Learned
 * Projects are not pets, so don't get attached. They are cattle.
