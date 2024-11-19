@@ -20,4 +20,4 @@ Milestone 3
 
 ## Signatures
 <!-- Add signatures on 10/24/2024 -->
-Estuardo Marroquin,Shishir Paudel, Skylar Shaffer, Adarsha Subedi
+Estuardo Marroquin, Shishir Paudel, Skylar Shaffer, Adarsha Subedi
