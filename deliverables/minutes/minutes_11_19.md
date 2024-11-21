@@ -23,3 +23,4 @@ We began finalizing the structure of our presentation. We began assigning speaki
 
 ## Signatures
 <!-- After the notes and action items have been pushed, each person should take a time to review them. If everything is agreeable, push a single commit with your name as a signature. -->
+Skylar Shaffer
