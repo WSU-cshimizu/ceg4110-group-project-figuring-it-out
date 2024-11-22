@@ -17,6 +17,12 @@ export default function Navbar() {
     }
   }, []);
 
+  const logout = () => {
+    Cookies.remove("authData"); // Remove the authentication cookie
+    setIsAuthenticated(false);
+    setRole(null); // Reset role
+  };
+
   return (
     <nav className="bg-[#026937] p-4 fixed w-full">
       <div className="container mx-auto flex justify-between items-center">
@@ -83,6 +89,12 @@ export default function Navbar() {
                   </li>
                 </>
               )}
+              {/* Logout Link */}
+              <li>
+                <Link href="/auth/login" className="text-gray-300 hover:text-white" onClick={() => logout()}>
+                  Logout
+                </Link>
+              </li>
             </>
           )}
         </ul>
@@ -110,12 +122,12 @@ export default function Navbar() {
             {!isAuthenticated ? (
               <>
                 <li>
-                  <Link href="/auth/auth/login" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
+                  <Link href="/auth/login" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
                     Login
                   </Link>
                 </li>
                 <li>
-                  <Link href="/auth/auth/signup" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
+                  <Link href="/auth/signup" className="text-gray-300 hover:text-white" onClick={() => setIsOpen(false)}>
                     Signup
                   </Link>
                 </li>
@@ -157,6 +169,13 @@ export default function Navbar() {
                     </li>
                   </>
                 )}
+
+                {/* Logout Link */}
+                <li>
+                  <Link href="/auth/login" className="text-gray-300 hover:text-white" onClick={() => logout()}>
+                    Logout
+                  </Link>
+                </li>
               </>
             )}
           </ul>
