@@ -16,3 +16,4 @@ The ability to explain your thought process is important, whether in interviews 
 Keep in mind the differences between your standards and the clients expectations. You may really want to use a 4k camera, but if the client is going to be viewing vertically on their phone, then it is not worth the trouble.
 
 ## Differences in Teaching
+Sometimes the point is the problem rather how to solve it.
