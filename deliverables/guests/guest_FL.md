@@ -8,8 +8,8 @@
 * Question 2
 
 ## Lessons Learned
-Text paragraph.
+Always prioritize working with technology that is well-documented. This saves time and makes it easier when learning or troubleshooting.
 
-Text paragraph.
+The ability to explain your thought process is important, whether in interviews or problem-solving, it helps others understand you better and shows that you know what you're doing.
 
 Text paragraph.
