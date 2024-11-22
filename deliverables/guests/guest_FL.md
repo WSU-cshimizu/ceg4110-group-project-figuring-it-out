@@ -4,7 +4,7 @@
 * **Date:** `11/21/2024`
 
 ## Pertinent Questions
-* Question 1
+* What are some strategies for active listening?
 * Question 2
 
 ## Lessons Learned
