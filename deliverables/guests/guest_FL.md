@@ -5,7 +5,7 @@
 
 ## Pertinent Questions
 * What are some strategies for active listening?
-* Question 2
+* How can you recognize/prevent when a company is trying to take advantage of your "fresh out of college energy" and trying to overwork you.
 
 ## Lessons Learned
 Always prioritize working with technology that is well-documented. This saves time and makes it easier when learning or troubleshooting.
