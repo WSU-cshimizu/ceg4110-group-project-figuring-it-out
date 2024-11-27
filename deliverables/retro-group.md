@@ -6,7 +6,7 @@
 * item
 
 ## What could have been better in the group...
-* item
+* Consistently meeting in our scheduled meeting times could have been better.
 * item
 * item
 
