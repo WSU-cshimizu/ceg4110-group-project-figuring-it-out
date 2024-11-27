@@ -3,7 +3,7 @@
 ## What went well in the group...
 * As a team we had effective communication outside of class via Discord text and voice chat.
 * We were very understanding and accommodating of each others skillsets. There was help available for those that didn't have the same level of understanding.
-* item
+* We produced effective wireframes as well as in-class diagrams which were very simple to work off of.
 
 ## What could have been better in the group...
 * Consistently meeting in our scheduled meeting times could have been better.
