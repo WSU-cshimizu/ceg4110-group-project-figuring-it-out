@@ -11,7 +11,7 @@
 * item
 
 ## What went well in the class...
-* item
+* The guest lectures were very informative and helpful. They provided several different perspectives on software development.
 * item
 * item
 
