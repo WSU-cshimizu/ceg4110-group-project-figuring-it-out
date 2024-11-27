@@ -7,7 +7,7 @@
 
 ## What could have been better in the group...
 * Consistently meeting in our scheduled meeting times could have been better.
-* item
+* We should have taken more advantage of asking questions and making sure we knew exactly what needed to be done.
 * item
 
 ## What went well in the class...
