@@ -17,7 +17,8 @@
 
 ## What could have been better in the class...
 * Checking in with individual groups more often could have been better, milestone check-ins.
-* item
+* Certain deliverables could have been explained better. As we went through the semester we would find out that something was not 
+how we originally thought and we needed to update documents and timelines to fix it.
 * item
 
 ## Further Comments
