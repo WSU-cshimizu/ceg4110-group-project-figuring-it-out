@@ -1,7 +1,7 @@
 # Group Retrospective
 
 ## What went well in the group...
-* item
+* As a team we had effective communication outside of class via Discord text and voice chat.
 * item
 * item
 
