@@ -8,7 +8,7 @@
 ## What could have been better in the group...
 * Consistently meeting in our scheduled meeting times could have been better.
 * We should have taken more advantage of asking questions and making sure we knew exactly what needed to be done.
-* item
+* We should have set more realistic dates from the start, rather than needing to change them multiple times.
 
 ## What went well in the class...
 * The guest lectures were very informative and helpful. They provided several different perspectives on software development.
