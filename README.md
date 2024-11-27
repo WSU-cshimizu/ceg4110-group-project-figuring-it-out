@@ -33,4 +33,7 @@ Software Development Plan is located at `deliverables/sdp.md`.
 
 ### Guest Lectures
 Reports about Guest Lecturers are located in `deliverables/guests/` in the format `guest_COMPANY.md`.
+
+### Group Retrospective
+The Group Retrospective is located at `deliverables/retro-group.md`.
 <!-- Add more here, or something lol -->

@@ -22,4 +22,4 @@ how we originally thought and we needed to update documents and timelines to fix
 * More structured feedback on our work would have helped us improve on future work.
 
 ## Further Comments
-* ...
+* We had a great time working together while Figuring It Out.
