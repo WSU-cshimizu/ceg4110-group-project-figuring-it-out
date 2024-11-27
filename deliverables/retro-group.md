@@ -13,7 +13,7 @@
 ## What went well in the class...
 * The guest lectures were very informative and helpful. They provided several different perspectives on software development.
 * In class work such as creating the different diagrams and drawing out some of the project functionality helped us better comprehend how the project should work.
-* item
+* There was always room to ask questions, which made it easier to clarify things.
 
 ## What could have been better in the class...
 * Checking in with individual groups more often could have been better, milestone check-ins.
