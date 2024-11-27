@@ -19,7 +19,7 @@
 * Checking in with individual groups more often could have been better, milestone check-ins.
 * Certain deliverables could have been explained better. As we went through the semester we would find out that something was not 
 how we originally thought and we needed to update documents and timelines to fix it.
-* item
+* More structured feedback on our work would have helped us improve on future work.
 
 ## Further Comments
 * ...
