@@ -61,16 +61,14 @@ function SignupPage() {
 
       if (response.data.success) {
         toast.success("Account created Successfully");
-
-        router.push("/admin/dashboard");
+        router.push("/auth/login");
       } else {
         alert(response.data.message);
         toast.success(response.data.message);
       }
     } catch (error) {
       console.error("Error signing up:", error);
-      toast.error("Error signing up. Please try again later.");
-
+      toast.error(error?.response?.data?.message);
     }
   };
 

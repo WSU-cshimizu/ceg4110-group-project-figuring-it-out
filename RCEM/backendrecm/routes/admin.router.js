@@ -13,7 +13,7 @@ const {
 adminRouter.post("/addEquipment", addEquipment);
 adminRouter.get("/allEquipments", getAllEquipments);
 adminRouter.get("/equipmentByID", getEquipmentById);
-adminRouter.put("/updateEquipment", updateEquipment);
+adminRouter.post("/updateEquipment", updateEquipment);
 adminRouter.delete("/deleteEquipment", deleteEquipment);
 
 module.exports = adminRouter;

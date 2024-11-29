@@ -1,5 +1,5 @@
- const adminModel = require("../models/Admin.js");
-const equipment = require('../models/Equipments.js');
+const adminModel = require("../models/Admin.js");
+const equipment = require("../models/Equipments.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Student = require("../models/Student.js");
@@ -7,10 +7,10 @@ const SERCRET_KEY = "RCEM";
 
 const signUp = async (req, res) => {
   const { username, password, role } = req.body;
-  
+
   try {
     // Determine which model to use based on the role
-    const userModel = role === 'admin' ? adminModel : Student;
+    const userModel = role === "admin" ? adminModel : Student;
 
     // Check if the user already exists
     const existingUser = await userModel.findOne({ username });
@@ -47,7 +47,7 @@ const login = async (req, res) => {
 
   try {
     // Determine which model to use based on the role
-    const userModel = role === 'admin' ? adminModel : Student;
+    const userModel = role === "admin" ? adminModel : Student;
 
     // Find the user based on username and role
     const existingUser = await userModel.findOne({
@@ -72,7 +72,7 @@ const login = async (req, res) => {
       { username: existingUser.username, id: existingUser._id },
       SERCRET_KEY
     );
-    
+
     res.json({ success: true, data: existingUser, token: token });
   } catch (error) {
     console.log("Error during login:", error);
@@ -85,7 +85,7 @@ const reset = async (req, res) => {
 
   try {
     // Determine which model to use based on the role
-    const userModel = role === 'admin' ? adminModel : Student;
+    const userModel = role === "admin" ? adminModel : Student;
 
     // Find the user based on username
     const existingUser = await userModel.findOne({ username: username });
@@ -97,7 +97,10 @@ const reset = async (req, res) => {
     }
 
     // Verify the current password
-    const authorizedUser = await bcrypt.compare(password, existingUser.password);
+    const authorizedUser = await bcrypt.compare(
+      password,
+      existingUser.password
+    );
     if (!authorizedUser) {
       return res.json({
         message: "Provided password is incorrect",
@@ -121,26 +124,22 @@ const reset = async (req, res) => {
   }
 };
 
-
-
 const getAllEquipments = async (req, res) => {
   try {
     const equipments = await equipment.find();
 
     res.status(200).json({
       success: true,
-      data: equipments
+      data: equipments,
     });
-
   } catch (error) {
-    console.error('Error fetching equipments:', error);
+    console.error("Error fetching equipments:", error);
 
     res.status(500).json({
       success: false,
-      messsage: "Server Error: Unable to fetch equipments"
+      messsage: "Server Error: Unable to fetch equipments",
     });
   }
-
 };
 
 const getEquipmentById = async (req, res) => {
@@ -150,7 +149,7 @@ const getEquipmentById = async (req, res) => {
     if (!id) {
       return res.status(400).json({
         success: false,
-        message: 'Equipment ID is required.'
+        message: "Equipment ID is required.",
       });
     }
 
@@ -159,149 +158,152 @@ const getEquipmentById = async (req, res) => {
     if (!equipment) {
       return res.status(404).json({
         success: false,
-        message: 'Equipment not found.'
+        message: "Equipment not found.",
       });
     }
 
     res.status(200).json({
       success: true,
-      data: eqpmnt
+      data: eqpmnt,
     });
-
-  } catch(error){
-    console.error('Error Fetching equipment by ID: ', error);
+  } catch (error) {
+    console.error("Error Fetching equipment by ID: ", error);
 
     res.status(500).json({
       success: false,
-      message: 'Server Error: Unable to fetch equipment by ID.'
+      message: "Server Error: Unable to fetch equipment by ID.",
     });
   }
 };
 
 const addEquipment = async (req, res) => {
-
   try {
-    const { name, description, availabilityStatus } = req.body;
+    const { name, description, availabilityStatus, itemCount, equipmentID } =
+      req.body;
 
     if (!name || !description) {
       return res.status(400).json({
         success: false,
-        message: 'Please provide name and description of the equipment.'
+        message: "Please provide name and description of the equipment.",
       });
     }
 
     const newEquipment = new equipment({
       name,
       description,
-      availabilityStatus: availabilityStatus !== undefined ? availabilityStatus : true
+      itemCount,
+      equipmentID,
+      availabilityStatus:
+        availabilityStatus !== undefined ? availabilityStatus : true,
     });
 
     const savedEquipment = await newEquipment.save();
 
     res.status(201).json({
       success: true,
-      data: savedEquipment
+      data: savedEquipment,
     });
-
   } catch (error) {
-    console.error('Error adding equipment:', error);
+    console.error("Error adding equipment:", error);
 
     res.status(500).json({
       success: false,
-      message: 'Server Error: Unable to add Equipment.'
+      message: "Server Error: Unable to add Equipment.",
     });
-
   }
-
 };
 
 const updateEquipment = async (req, res) => {
+  try {
+    const { id, name, description, availabilityStatus, equipmentID, itemCount } = req.body;
 
-  try{
-    const { id, name, description, availabilityStatus } = req.body;
-
-    if(!id){
+    // Validate ID is provided
+    if (!id) {
       return res.status(400).json({
         success: false,
-        message: 'Equipment ID is required.'
+        message: "Equipment ID is required.",
       });
     }
 
-    const updateEquipment = await equipment.findByIdAndUpdate(
-      id, 
+    // Update equipment by ID
+    const updatedEquipment = await Equipment.findByIdAndUpdate(
+      id,
       {
         name,
         description,
         availabilityStatus,
-        updatedAt: Date.now()
-      }, 
-      {new: true, runValidators: true}
+        equipmentID,
+        itemCount,
+        updatedAt: Date.now(),
+      },
+      { new: true, runValidators: true } // Return the updated document
     );
 
-    res.status(200).json({
-      success: true,
-      data: updateEquipment
-    });
-
-  } catch (error){
-
-    console.error('Error updating equipment:', error);
-
-    res.status(500).json({
-      success: false,
-      message: 'Server Error: Unable to update equipment.'
-    });
-
-  }
-
-}
-
-const deleteEquipment = async (req, res) => {
-  try{
-    const { id } = req.query;
-
-    if(!id){
-      res.status(400).json({
-        succes: false,
-        message: 'Equipment ID is required.'
+    // If no equipment found, respond with 404
+    if (!updatedEquipment) {
+      return res.status(404).json({
+        success: false,
+        message: "Equipment not found.",
       });
     }
 
-    const deletedEquipment = await equipment.findByIdAndDelete(id);
+    // Respond with the updated data
+    res.status(200).json({
+      success: true,
+      data: updatedEquipment,
+    });
+  } catch (error) {
+    console.error("Error updating equipment:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Server Error: Unable to update equipment.",
+    });
+  }
+};
+
+const deleteEquipment = async (req, res) => {
+  try {
+    // Support both query and body-based IDs
+    const { id } = req.query || req.body;
+
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: "Equipment ID is required.",
+      });
+    }
+
+    const deletedEquipment = await Equipment.findByIdAndDelete(id);
 
     if (!deletedEquipment) {
       return res.status(404).json({
         success: false,
-        message: 'Equipment not found.'
+        message: "Equipment not found.",
       });
     }
 
     res.status(200).json({
       success: true,
-      message: 'Equipment deleted successfully.',
-      data: deletedEquipment
+      message: "Equipment deleted successfully.",
+      data: deletedEquipment,
     });
-
   } catch (error) {
-    console.error('Error deleting equipment:', error);
-
+    console.error("Error deleting equipment:", error);
     res.status(500).json({
       success: false,
-      message: 'Server Error: Unable to delete equipment.'
+      message: "Server Error: Unable to delete equipment.",
     });
   }
-
 };
 
-
-
-module.exports = { 
-  signUp, 
-  login, 
-  reset, 
-  getAllEquipments, 
+module.exports = {
+  signUp,
+  login,
+  reset,
+  getAllEquipments,
   getEquipmentById,
   addEquipment,
   updateEquipment,
-  deleteEquipment
+  deleteEquipment,
 };
