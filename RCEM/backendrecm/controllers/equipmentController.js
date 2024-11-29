@@ -23,7 +23,11 @@ const bookEquipment = async (req, res) => {
     // Set booking start and end time
     const bookingDate = new Date(date);
     const startDate = new Date(
-      bookingDate.setHours(parseInt(time.split(":")[0]), parseInt(time.split(":")[1]), 0)
+      bookingDate.setHours(
+        parseInt(time.split(":")[0]),
+        parseInt(time.split(":")[1]),
+        0
+      )
     ); // Set start time from selected date and time
 
     let endDate = new Date(startDate);
@@ -31,6 +35,16 @@ const bookEquipment = async (req, res) => {
       endDate.setHours(18, 0, 0); // If booking for today, set to 6 PM today
     } else {
       endDate.setHours(18, 0, 0); // If not, set to 6 PM on the selected date
+    }
+
+    // Check if the user already has a booking for the same equipment and time slot
+    const existingBooking = await Booking.findOne({
+      userId,
+      equipmentId,
+    });
+
+    if (existingBooking) {
+      return res.status(400).json({ error: "You have already booked this equipment for the selected time slot." });
     }
 
     // Create booking

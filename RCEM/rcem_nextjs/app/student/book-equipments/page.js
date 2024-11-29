@@ -1,152 +1,220 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PageLayout from "../../components/pageLayout";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import Cookies from "js-cookie";
+import jwt from "jsonwebtoken";
 
 function Page() {
   const [bookedEquipments, setBookedEquipments] = useState([]);
+  const [equipments, setEquipments] = useState([]);
+  const [equipmentState, setEquipmentState] = useState({}); // State to manage quantities and selected date-time
+  const [userID, setUser] = useState();
 
-  const handleBooking = (equipment, quantity, selectedDateTime) => {
-    if (!selectedDateTime.date || !selectedDateTime.time) {
+  useEffect(() => {
+    // Get the user's authentication data from the cookie
+    const authData = Cookies.get("authData");
+    if (authData) {
+      const parsedData = JSON.parse(authData);
+
+      // Decode the token
+      const token = parsedData.token; // Assuming the token is under `token` key
+      try {
+        const decoded = jwt.decode(token); // Decode the JWT token
+
+        // Extract the studentId from the decoded token
+        const id = decoded.id; // Assuming the `studentId` is in the payload
+        setUser(id);
+      } catch (err) {
+        console.error("Error decoding the token", err);
+      }
+    }
+  }, []);
+
+  console.log(userID, "data");
+
+  const handleBooking = async (equipmentId) => {
+    const equipmentDetails = equipmentState[equipmentId];
+
+    // Validate input
+    if (!equipmentDetails || !equipmentDetails.date || !equipmentDetails.time) {
       toast.error("Please select both date and time!");
       return;
     }
 
-    // Check if the selected date is valid
     const today = new Date();
-    const selectedDate = new Date(selectedDateTime.date);
+    const selectedDate = new Date(equipmentDetails.date);
     if (selectedDate < today.setHours(0, 0, 0, 0)) {
       toast.error("Booking cannot be made for past dates!");
       return;
     }
 
-    if (quantity === 0) {
+    if (equipmentDetails.quantity === 0) {
       toast.error("Please select a quantity greater than 0!");
       return;
     }
 
-    // Add booking details to state
-    setBookedEquipments((prev) => [
-      ...prev,
-      { ...equipment, quantity, ...selectedDateTime },
-    ]);
+    // Prepare data to send to backend
+    const bookingData = {
+      equipmentId,
+      userId: userID,
+      quantity: equipmentDetails.quantity,
+      date: equipmentDetails.date,
+      time: equipmentDetails.time,
+    };
 
-    toast.success(`${equipment.name} booked successfully!`);
+    try {
+      // Make API request to book the equipment
+      const response = await axios.post(
+        "http://localhost:5000/api/equipment/bookEquipment",
+        bookingData
+      );
+
+      if (response.status === 200) {
+        toast.success(response.data.message); // Show the return time and fine information
+        setBookedEquipments((prev) => [
+          ...prev,
+          { equipmentId, ...equipmentDetails },
+        ]);
+      }
+    } catch (error) {
+      console.error("Error booking equipment:", error);
+      toast.error(error?.response?.data?.error);
+    }
   };
 
-  const equipments = [
-    { id: 1, name: "Bicycle", image: "https://via.placeholder.com/200", inStock: 10 },
-    { id: 2, name: "Helmet", image: "https://via.placeholder.com/150", inStock: 5 },
-  ];
+  const fetchEquipments = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/api/admin/allEquipments"
+      );
+      setEquipments(response.data?.data || []); // Assume `data` contains the equipment array
+    } catch (error) {
+      console.error("Error fetching equipments:", error);
+      toast.error("Failed to fetch equipment data.");
+    }
+  };
+
+  useEffect(() => {
+    fetchEquipments();
+  }, []);
+
+  const handleStateChange = (equipmentId, key, value) => {
+    setEquipmentState((prev) => ({
+      ...prev,
+      [equipmentId]: {
+        ...prev[equipmentId],
+        [key]: value,
+      },
+    }));
+  };
+
+  const generateTimeOptions = () => {
+    const times = [];
+    for (let hour = 8; hour <= 16; hour++) {
+      times.push(
+        `${hour.toString().padStart(2, "0")}:00`,
+        `${hour.toString().padStart(2, "0")}:30`
+      );
+    }
+    return times;
+  };
 
   return (
     <PageLayout>
       <div className="flex flex-col gap-8">
-        <h2 className="font-semibold text-xl">All Equipments</h2>
-        <div className="flex flex-wrap gap-4 justify-start">
-          {equipments.map((equipment, index) => {
-            const [quantity, setQuantity] = useState(0);
-            const [selectedDateTime, setSelectedDateTime] = useState({
-              date: null,
-              time: null,
-            });
+        <h2 className="font-bold text-2xl text-center">Equipment Booking</h2>
 
-            const increaseQuantity = () => {
-              if (quantity < equipment.inStock) {
-                setQuantity(quantity + 1);
-              }
-            };
-
-            const decreaseQuantity = () => {
-              if (quantity > 0) {
-                setQuantity(quantity - 1);
-              }
-            };
-
-            const handleDateChange = (e) => {
-              setSelectedDateTime({ ...selectedDateTime, date: e.target.value });
-            };
-
-            const handleTimeChange = (e) => {
-              setSelectedDateTime({ ...selectedDateTime, time: e.target.value });
-            };
-
-            // Generate time options between 8:00 AM and 4:00 PM
-            const generateTimeOptions = () => {
-              const times = [];
-              for (let hour = 8; hour <= 16; hour++) {
-                times.push(
-                  `${hour.toString().padStart(2, "0")}:00`,
-                  `${hour.toString().padStart(2, "0")}:30`
-                );
-              }
-              return times;
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {equipments.map((equipment) => {
+            const equipmentDetails = equipmentState[equipment._id] || {
+              quantity: 0,
+              date: "",
+              time: "",
             };
 
             return (
               <div
-                key={index}
-                className="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 lg:w-1/5 p-4 border rounded-lg shadow-lg"
+                key={equipment._id}
+                className="border border-gray-300 rounded-lg p-6 shadow-md bg-white flex flex-col gap-4"
               >
-                <img
-                  className="rounded-xl mb-4"
-                  height="80px"
-                  width="200px"
-                  src={equipment.image}
-                  alt={equipment.name}
-                />
-                <div className="flex flex-col items-center">
-                  <h4 className="font-semibold text-lg">{equipment.name}</h4>
-                  <p className="text-sm text-gray-600">In Stock: {equipment.inStock}</p>
-                  <div className="flex justify-center items-center gap-2 w-full p-2 rounded-lg my-2">
-                    <button
-                      onClick={decreaseQuantity}
-                      className="px-4 py-1 bg-gray-400 text-white rounded"
-                    >
-                      -
-                    </button>
-                    <p>{quantity}</p>
-                    <button
-                      onClick={increaseQuantity}
-                      className="px-4 py-1 bg-gray-400 text-white rounded"
-                    >
-                      +
-                    </button>
-                  </div>
-                  <div>
-                    <h3>Select Date and Time:</h3>
-                    <input
-                      type="date"
-                      value={selectedDateTime.date || ""}
-                      onChange={handleDateChange}
-                      className="mb-2"
-                      min={new Date().toISOString().split("T")[0]} // Prevent past dates
-                    />
-                    <select
-                      value={selectedDateTime.time || ""}
-                      onChange={handleTimeChange}
-                      className="mb-2"
-                    >
-                      <option value="" disabled>
-                        Select Time
-                      </option>
-                      {generateTimeOptions().map((time) => (
-                        <option key={time} value={time}>
-                          {time}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                <h3 className="font-semibold text-lg">{equipment.name}</h3>
+                <p className="text-sm text-gray-500">
+                  In Stock: {equipment.itemCount}
+                </p>
+
+                <div className="flex items-center justify-between gap-2">
                   <button
-                    className="px-4 py-2 border rounded border-[#026937] mt-4"
                     onClick={() =>
-                      handleBooking(equipment, quantity, selectedDateTime)
+                      handleStateChange(
+                        equipment._id,
+                        "quantity",
+                        Math.max(0, equipmentDetails.quantity - 1)
+                      )
                     }
+                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded"
                   >
-                    Book now
+                    -
+                  </button>
+                  <p className="text-lg font-semibold">
+                    {equipmentDetails.quantity}
+                  </p>
+                  <button
+                    onClick={() =>
+                      handleStateChange(
+                        equipment._id,
+                        "quantity",
+                        Math.min(
+                          equipment.itemCount,
+                          equipmentDetails.quantity + 1
+                        )
+                      )
+                    }
+                    className="px-4 py-2 bg-green-600 text-white rounded"
+                  >
+                    +
                   </button>
                 </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-medium">Select Date</label>
+                  <input
+                    type="date"
+                    value={equipmentDetails.date}
+                    onChange={(e) =>
+                      handleStateChange(equipment._id, "date", e.target.value)
+                    }
+                    className="border border-gray-300 rounded px-3 py-2"
+                    min={new Date().toISOString().split("T")[0]} // Prevent past dates
+                  />
+
+                  <label className="text-sm font-medium">Select Time</label>
+                  <select
+                    value={equipmentDetails.time}
+                    onChange={(e) =>
+                      handleStateChange(equipment._id, "time", e.target.value)
+                    }
+                    className="border border-gray-300 rounded px-3 py-2"
+                  >
+                    <option value="" disabled>
+                      Select Time
+                    </option>
+                    {generateTimeOptions().map((time) => (
+                      <option key={time} value={time}>
+                        {time}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <button
+                  className="w-full bg-green-600 text-white font-medium py-2 rounded mt-4"
+                  onClick={() => handleBooking(equipment._id)}
+                >
+                  Book Now
+                </button>
               </div>
             );
           })}
