@@ -3,6 +3,7 @@ const equipment = require("../models/Equipments.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Student = require("../models/Student.js");
+const Equipment = require("../models/Equipments.js");
 const SERCRET_KEY = "RCEM";
 
 const signUp = async (req, res) => {
