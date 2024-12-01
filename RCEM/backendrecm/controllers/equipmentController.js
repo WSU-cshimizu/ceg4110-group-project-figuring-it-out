@@ -160,11 +160,13 @@ const getAllBookings = async (req, res) => {
     // If a status is provided, filter the bookings by the status
     let filter = {};
     if (status) {
-      filter.status = status;  // e.g., 'pending', 'confirmed', 'canceled'
+      filter.status = status; // e.g., 'pending', 'confirmed', 'canceled'
     }
 
-    // Find bookings with the filter applied
-    const bookings = await Booking.find(filter);
+    // Find bookings with the filter applied and populate the references
+    const bookings = await Booking.find(filter)
+      .populate('userId', 'username email') // Populates user details (name and email)
+      .populate('equipmentId', 'name type equipmentID'); // Populates equipment details (name and type)
 
     // Check if bookings are empty and send an appropriate message
     if (bookings.length === 0) {
