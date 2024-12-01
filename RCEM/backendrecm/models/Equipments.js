@@ -5,10 +5,11 @@ const equipmentSchema = new mongoose.Schema({
   description: { type: String, required: true },
   equipmentID: { type: String, required: true },
   itemCount: { type: String, required: true },
+  bookedQuantity: { type: String, required: false },
   availabilityStatus: { type: Boolean, default: true }, // true if available
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
-});
+}); 
 
 const Equipment = mongoose.model("Equipment", equipmentSchema);
 module.exports = Equipment;

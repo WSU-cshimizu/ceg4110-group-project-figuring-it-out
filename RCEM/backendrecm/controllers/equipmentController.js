@@ -1,6 +1,8 @@
 const Booking = require("../models/Booking");
 const Equipment = require("../models/Equipments");
+const mongoose = require("mongoose");
 
+// Book equipment
 const bookEquipment = async (req, res) => {
   try {
     const { userId, equipmentId, quantity, date, time } = req.body;
@@ -44,7 +46,10 @@ const bookEquipment = async (req, res) => {
     });
 
     if (existingBooking) {
-      return res.status(400).json({ error: "You have already booked this equipment for the selected time slot." });
+      return res.status(400).json({
+        error:
+          "You have already booked this equipment for the selected time slot.",
+      });
     }
 
     // Create booking
@@ -74,45 +79,110 @@ const bookEquipment = async (req, res) => {
 // Approve booking
 const approveBooking = async (req, res) => {
   try {
-    const { bookingId } = req.params;
+    const { bookingId } = req.params; // Get booking ID from params
 
+    // Validate bookingId
+    if (!mongoose.Types.ObjectId.isValid(bookingId)) {
+      return res.status(400).json({ error: "Invalid booking ID" });
+    }
+
+    // Find booking by ID
     const booking = await Booking.findById(bookingId);
     if (!booking) {
       return res.status(404).json({ error: "Booking not found" });
     }
 
-    booking.status = "confirmed";
+    // If the booking is already approved or rejected, prevent changes
+    if (booking.status === "approved") {
+      return res.status(400).json({ error: "Booking already approved" });
+    }
+    if (booking.status === "rejected") {
+      return res.status(400).json({ error: "Booking already rejected" });
+    }
+
+    // Update booking status to approved
+    booking.status = "approved";
     await booking.save();
 
-    return res.status(200).json({ message: "Booking approved." });
+    res.status(200).json({
+      message: "Booking approved successfully",
+      booking,
+    });
   } catch (error) {
     console.error("Error approving booking:", error);
-    return res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
 // Reject booking
 const rejectBooking = async (req, res) => {
   try {
-    const { bookingId } = req.params;
+    const { bookingId } = req.params; // Get booking ID from params
 
+    // Validate bookingId
+    if (!mongoose.Types.ObjectId.isValid(bookingId)) {
+      return res.status(400).json({ error: "Invalid booking ID" });
+    }
+
+    // Find booking by ID
     const booking = await Booking.findById(bookingId);
     if (!booking) {
       return res.status(404).json({ error: "Booking not found" });
     }
 
-    booking.status = "canceled";
+    // If the booking is already approved or rejected, prevent changes
+    if (booking.status === "approved") {
+      return res.status(400).json({ error: "Booking already approved" });
+    }
+    if (booking.status === "rejected") {
+      return res.status(400).json({ error: "Booking already rejected" });
+    }
+
+    // Update booking status to rejected
+    booking.status = "rejected";
     await booking.save();
 
-    return res.status(200).json({ message: "Booking rejected." });
+    res.status(200).json({
+      message: "Booking rejected successfully",
+      booking,
+    });
   } catch (error) {
     console.error("Error rejecting booking:", error);
-    return res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
+const getAllBookings = async (req, res) => {
+  try {
+    // Get the 'status' query parameter from the request
+    const { status } = req.query;
+
+    // If a status is provided, filter the bookings by the status
+    let filter = {};
+    if (status) {
+      filter.status = status;  // e.g., 'pending', 'confirmed', 'canceled'
+    }
+
+    // Find bookings with the filter applied
+    const bookings = await Booking.find(filter);
+
+    // Check if bookings are empty and send an appropriate message
+    if (bookings.length === 0) {
+      return res.status(404).json({ message: "No bookings found for the specified status." });
+    }
+
+    // If bookings are found, send them in the response
+    res.status(200).json(bookings);
+  } catch (error) {
+    console.error("Error fetching bookings:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+
 module.exports = {
   bookEquipment,
+  getAllBookings,
   approveBooking,
   rejectBooking,
 };
