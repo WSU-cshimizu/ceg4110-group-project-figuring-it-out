@@ -125,25 +125,19 @@ function Page() {
                       {new Date(booking.createdAt).toLocaleString()}
                     </td>
                     <td className="w-1/4 px-4 py-2">{booking.status}</td>
-                    <td className="w-1/4 px-4 py-2">
-                      {booking.status === "pending" && (
-                        <>
-                          <button
-                            className="text-green-500 hover:text-green-700 mr-2"
-                            onClick={() => handleApprove(booking._id)}
-                          >
-                            Approve
-                          </button>
-                          <button
-                            className="text-red-500 hover:text-red-700"
-                            onClick={() => handleReject(booking._id)}
-                          >
-                            Reject
-                          </button>
-                        </>
-                      )}
-                      {booking.status === "confirmed" && <span>Approved</span>}
-                      {booking.status === "canceled" && <span>Rejected</span>}
+                    <td className="w-1/4 px-4 py-2 flex gap-3">
+                      <button
+                        className="bg-green-500 hover:text-green-700 mr-2 px-3 py-1 text-white rounded-sm"
+                        // onClick={() => handleApprove(booking._id)}
+                      >
+                        Approve
+                      </button>
+                      <button
+                        className="bg-red-500 hover:text-red-700 px-3 py-1 text-white rounded-sm"
+                        // onClick={() => handleReject(booking._id)}
+                      >
+                        Reject
+                      </button>
                     </td>
                   </tr>
                 ))

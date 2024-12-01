@@ -180,6 +180,36 @@ const getAllBookings = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+const getUserBookings = async (req, res) => {
+  try {
+    // Extract 'userId' from request params and 'status' from query parameters
+    const { userId } = req.params;
+    const { status } = req.query;
+
+
+    // Build the filter to include userId and optionally the status
+    let filter = { userId }; // Filter by userId
+    if (status) {
+      filter.status = status; // Optional status filter
+    }
+
+    // Find bookings for the specific user with the filter applied and populate references
+    const bookings = await Booking.find(filter)
+      .populate('userId', 'username email') // Populates user details (username and email)
+      .populate('equipmentId', 'name type equipmentID'); // Populates equipment details (name, type, equipmentID)
+
+    // Check if no bookings are found
+    if (bookings.length === 0) {
+      return res.status(404).json({ message: "No bookings found for the specified user." });
+    }
+
+    // Respond with the bookings
+    res.status(200).json(bookings);
+  } catch (error) {
+    console.error("Error fetching user bookings:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
 
 
 module.exports = {
@@ -187,4 +217,5 @@ module.exports = {
   getAllBookings,
   approveBooking,
   rejectBooking,
+  getUserBookings
 };
