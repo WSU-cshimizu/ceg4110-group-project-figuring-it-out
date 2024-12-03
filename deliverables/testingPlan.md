@@ -25,4 +25,4 @@ Functional testing ensures the system meets requirements by validating outputs f
 We needed to see if the whole project work together from frontend to the backend. The best way to verify these components work well together is from integration testing. For simplicity and reliability we opted for the manual testing for this testing framework.
 
 ### Signature
-Adarsha Subedi
+Adarsha Subedi,Shishir Paudel
