@@ -43,8 +43,7 @@ The Presentation is located at `deliverables/fio-presentation.pdf`.
 ## Running
 Make sure you have node.js >= 18 and a MongoDB instance. If it's not running on localhost, be sure to modify `RCEM/backendrcm/.env`. Running a MongoDB instance locally is left as an exercise to the reader.
 
-To setup:
-Install dependencies.
+To setup, install dependencies:
 - Run `npm -i` inside both the `RCEM/backendrecm` and `RCEM/rcem_nextjs` folders.
 
 To run:
